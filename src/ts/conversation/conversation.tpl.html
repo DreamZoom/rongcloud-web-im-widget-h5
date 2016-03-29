@@ -1,0 +1,95 @@
+<div id="rong-conversation"  class="main kefuList" ng-show="showSelf">
+    <evaluatedir type="evaluate.type" display="evaluate.showevaluate" confirm="evaluate.onConfirm(data)" cancle="evaluate.onCancle()"></evaluatedir>
+    <div class="main_inner clearfix">
+        <header class="header">
+            <a class="icon_return" href="javascript:void 0" ng-click="close()">
+              <img src="../widget/images/arrow-left.png" width="16" alt=""/>
+            </a>
+            <div class="title">
+                <a class="title_name online"><i class="Presence"></i>{{currentConversation.title}}</a>
+            </div>
+            <a href="javascript:void 0"></a>
+        </header>
+        <div id="wrapper" class="" ng-iscroll="wrapper" ng-style="wrapperbottom">
+          <div id="scroller">
+            <div id="Messages" class=""> <!-- empty -->
+                <div class="MessagesInner message-scroll">
+                    <div class="Message-wrapper">
+                        <div ng-repeat="item in messageList"  ng-switch="item.panelType">
+                          <!-- <div class="Messages-date"><b class="">2015 年 8 月 6日</b></div> -->
+
+                          <div class="Messages-date" ng-switch-when="104"><b class="">{{item.sentTime|historyTime}}</b></div>
+                          <div class="Messages-date" ng-switch-when="105"><b class=""  my-tap="getHistory()">查看历史消息</b></b></div>
+                          <div class="Messages-date" ng-switch-when="106"><b class=""  my-tap="getMoreMessage()">获取更多消息</b></div>
+
+                          <div class="sys-tips" ng-switch-when="2" ><span>{{item.content.content}}</span></div>
+                          <div class="Message  status1" ng-switch-when="1" ng-class="{'youMsg':item.messageDirection==2,'myMsg':item.messageDirection==1}">
+                              <div class="Messages-unreadLine"></div>
+                              <div>
+                                  <div class="Message-header "><img class="img u-isActionable Message-avatar avatar" ng-src="{{item.content.userInfo.portraitUri||'../widget/images/webBg.png'}}" src="../widget/images/barBg.png" alt="">
+                                  </div>
+                              </div>
+                              <div class="Message-body"  ng-switch="item.messageType">
+                                  <!-- <div class="">
+                                      <div class="Message-text">
+                                          <div class="arrow-dialog"></div>
+                                          <i class="sprite"></i>
+                                          <pre class="Message-entry userMsg">开心麻花本周日的话剧票还有嘛？<br></pre>
+                                      </div>
+                                  </div> -->
+                                  <textmessage ng-switch-when="TextMessage" msg="item.content"></textmessage>
+                                  <imagemessage ng-switch-when="ImageMessage" msg="item.content"></imagemessage>
+                                  <voicemessage ng-switch-when="VoiceMessage" msg="item.content"></voicemessage>
+                                  <locationmessage ng-switch-when="LocationMessage" msg="item.content"></locationmessage>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <footer  class="footer clearfix">
+          <div id="funcPanel" style="display: flex;display: -webkit-flex;">
+            <a  id="uploadfile" href="#" class="pull-left message_type_btn" ng-show="_inputPanelState==0">
+                <i class="sprite2 icon_message_type1">
+                </i>
+            </a>
+
+            <a href="#" class="pull-left message_type2_btn" ng-click="switchPerson()" ng-show="_inputPanelState==2">
+                <span class="">转人工服务</span>
+            </a>
+            <div class="message_wrap">
+                <textarea
+                id="inputMsg"
+                ng-focus="showemoji=false"
+                ctrl-enter-keys fun="send()" ctrlenter="false"  ondrop="return false;"
+                ng-model="currentConversation.messageContent"
+                 placeholder="请输入文字..."></textarea>
+                <!-- <pre id="inputMsg" class="text grey" contenteditable contenteditable-dire
+                ng-focus="showemoji=fase"
+                style='background-color: rgba(0,0,0,0);color:black;'
+                ctrl-enter-keys fun="send()" ctrlenter="false" placeholder="请输入文字..." ondrop="return false;"
+                ng-model="currentConversation.messageContent"></pre> -->
+            </div>
+            <a href="#" class="pull-right message_type_btn message_type_btn2"  ng-show="_inputPanelState==0">
+                <i class="sprite2 message_emoji_btn" ng-click="showemoji=!showemoji"></i>
+            </a>
+          </div>
+
+
+            <div class="pub-faces" ng-show="showemoji">
+                  <swipe-emoji content="currentConversation"></swipe-emoji>
+            </div>
+
+            <div class="footerBtn clearfix" ng-show="showemoji">
+                <ul class="clearfix emojiWrap">
+                    <li class="sprite2"></li>
+                </ul>
+                <a href="" class="send_btn" ng-click="send()">发送</a>
+            </div>
+        </footer>
+    </div>
+</div>

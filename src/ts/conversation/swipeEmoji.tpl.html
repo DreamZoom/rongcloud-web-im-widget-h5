@@ -1,0 +1,11 @@
+<div class="swipe" id="slider">
+  <div class="swipe-wrap">
+    <figure  ng-repeat="item in data">
+      <emoji ng-repeat="it in item.emojis"  item="it" content="$parent.content"></emoji>
+      <span class="delete-emoji" index="-1" alt="" ng-click="delete()"></span>
+    </figure>
+  </div>
+  <ol id="position" class="ui-carousel-indicators">
+        <li ng-repeat="item in data" ng-class="{'js-active':item.show}"></li>
+  </ol>
+</div>

@@ -1,0 +1,21 @@
+<div id="rong-conversation-list"  class="main kefuList" ng-show="conversationListServer.showSelf">
+    <div class="main_inner clearfix">
+        <!-- header -->
+        <header class="header">
+            <a class="icon_return" href="javascript:void 0"><img src="../widget/images/arrow-left.png" alt="" ng-click="minbtn()"></a>
+            <div class="title">
+                <a class="title_name online"><i class="Presence"></i>最近联系人</a>
+            </div>
+            <a href="javascript:void 0"></a>
+        </header>
+        <div class="chatBox" id="chatBox">
+            <div class="chatArea">
+                <div class="chatList">
+
+                  <conversation-item ng-repeat="item in conversationListServer.conversationList" item="item"></conversation-item>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
