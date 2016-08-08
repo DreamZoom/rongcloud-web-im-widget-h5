@@ -21,8 +21,6 @@
     "!node_modules/**"
   ],
   "files": [
-    "demo/vendor/loadscript/script.d.ts",
-    "demo/vendor/qiniu/qiniu.d.ts",
     "src/lib/RongIMLib.d.ts",
     "src/lib/window.d.ts",
     "src/ts/conversation/conversationController.ts",

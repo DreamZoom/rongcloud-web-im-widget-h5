@@ -1,5 +1,5 @@
 /*!
- * jQuery JavaScript Library v2.2.2
+ * jQuery JavaScript Library v2.2.3
  * http://jquery.com/
  *
  * Includes Sizzle.js
@@ -9,7 +9,7 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2016-03-17T17:51Z
+ * Date: 2016-04-05T19:26Z
  */
 
 (function( global, factory ) {
@@ -65,7 +65,7 @@ var support = {};
 
 
 var
-	version = "2.2.2",
+	version = "2.2.3",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -9475,7 +9475,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		// If it fails, this function gets "jqXHR", "status", "error"
 		} ).always( callback && function( jqXHR, status ) {
 			self.each( function() {
-				callback.apply( self, response || [ jqXHR.responseText, status, jqXHR ] );
+				callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
 			} );
 		} );
 	}
@@ -12577,7 +12577,7 @@ angular.module('ng-iscroll', []).directive('ngIscroll', function ()
           scope.$parent.myScroll = [];
         }
 
-        window["sc"]=scope.$parent.myScroll[scroll_key] = new IScroll(element[0], ngiScroll_opts);
+        scope.$parent.myScroll[scroll_key] = new IScroll(element[0], ngiScroll_opts);
       }
 
       // new specific setting for setting timeout using: ng-iscroll-timeout='{val}'
@@ -14375,6 +14375,7 @@ var WidgetModule;
                 case WidgetModule.MessageType.TextMessage:
                     var texmsg = new TextMessage();
                     var content = SDKmsg.content.content;
+                    content = Helper.discernUrlEmailInStr(content);
                     if (RongIMLib.RongIMEmoji && RongIMLib.RongIMEmoji.emojiToHTML) {
                         content = RongIMLib.RongIMEmoji.emojiToHTML(content);
                     }
@@ -14578,6 +14579,28 @@ var WidgetModule;
             var pre = first.toString();
             var cur = second.toString();
             return pre.substring(0, pre.lastIndexOf(":")) == cur.substring(0, cur.lastIndexOf(":"));
+        };
+        Helper.discernUrlEmailInStr = function (str) {
+            var html;
+            var EMailReg = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/gi;
+            var EMailArr = [];
+            html = str.replace(EMailReg, function (str) {
+                EMailArr.push(str);
+                return '[email`' + (EMailArr.length - 1) + ']';
+            });
+            var URLReg = /(((ht|f)tp(s?))\:\/\/)?((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|(www.|[a-zA-Z].)[a-zA-Z0-9\-\.]+\.(com|cn|edu|gov|mil|net|org|biz|info|name|museum|us|ca|uk|me|im))(\:[0-9]+)*(\/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*/gi;
+            html = html.replace(URLReg, function (str, $1) {
+                if ($1) {
+                    return '<a target="_blank" href="' + str + '">' + str + '</a>';
+                }
+                else {
+                    return '<a target="_blank" href="//' + str + '">' + str + '</a>';
+                }
+            });
+            for (var i = 0, len = EMailArr.length; i < len; i++) {
+                html = html.replace('[email`' + i + ']', '<a href="mailto:' + EMailArr[i] + '">' + EMailArr[i] + '<a>');
+            }
+            return html;
         };
         Helper.checkType = function (obj) {
             var type = Object.prototype.toString.call(obj);
