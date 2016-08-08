@@ -111,6 +111,7 @@ conversationController.controller("conversationController", ["$scope",
                 return;
             }
             if (newVal) {
+                $scope.refreshiScroll();
                 setTimeout(function() {
                     qiniuuploader && qiniuuploader.destroy();
                     uploadFileInit();
