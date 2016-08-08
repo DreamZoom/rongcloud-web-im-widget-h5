@@ -12617,6 +12617,11 @@ conversationController.controller("conversationController", ["$scope",
         var ImageDomain = "http://7xogjk.com1.z0.glb.clouddn.com/";
         var notExistConversation = true;
         var qiniuuploader;
+        $scope.$parent.myScrollOptions = {
+            'wrapper': {
+                click: true
+            }
+        };
         $scope.refreshiScroll = function () {
             setTimeout(function () {
                 var sc = $scope.$parent.myScroll['wrapper'];

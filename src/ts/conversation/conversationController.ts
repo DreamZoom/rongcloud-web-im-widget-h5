@@ -15,6 +15,12 @@ conversationController.controller("conversationController", ["$scope",
         var notExistConversation = true;
         var qiniuuploader;
 
+        $scope.$parent.myScrollOptions = {
+            'wrapper': {
+                click: true
+            },
+        };
+
         $scope.refreshiScroll = function() {
             setTimeout(function() {
                 var sc = $scope.$parent.myScroll['wrapper'];
