@@ -28,13 +28,13 @@ body{
 	------------Reset   End--------------
 */
 
-.sprite{
+.rongcloud-sprite{
     background: url(../images/icon.png) no-repeat;
     background-size: 2.4rem auto;
 }
-.sprite2{background: url(../images/icon2.png) no-repeat;background-size: 3.6rem auto;}
+.rongcloud-sprite2{background: url(../images/icon2.png) no-repeat;background-size: 3.6rem auto;}
 /* header */
-.header{
+.rongcloud-header{
     width: 100%;
     height: 1.8rem;
     line-height:1.8rem;
@@ -53,7 +53,7 @@ body{
     cursor: pointer;
     /*border-bottom: 1px solid #c9deec;*/
 }
-.header:after{
+.rongcloud-header:after{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -63,27 +63,27 @@ body{
     border-top: 1px solid #c9deec;
     -webkit-transform: scaleY(0.5);
 }
-.header .btn-right,.header > span{
+.rongcloud-header .rongcloud-btn-right,.rongcloud-header > span{
     display: -webkit-box;
     text-decoration: none;
     text-shadow: 0,-1 ,0,rgba(0,0,0,5);
     color: #00aff0;
 }
-.header .btn-left,.header .btn-right{
+.rongcloud-header .rongcloud-btn-left,.rongcloud-header .rongcloud-btn-right{
     border: 0;
 }
 
-.header .btn-left{
+.rongcloud-header .rongcloud-btn-left{
     background: none;
 }
-.header .title a{
+.rongcloud-header .rongcloud-title a{
     color: #fff;
     letter-spacing: .5px;
 }
 
 
 /* chatBox */
-.chatBox{
+.rongcloud-chatBox{
     margin-top: 1.8rem;
     position: absolute;
     top: 0px;
@@ -94,21 +94,21 @@ body{
     overflow-y: auto;
     overflow-x: hidden;
 }
-.chatArea {
+.rongcloud-chatArea {
     overflow-x:hidden;
     overflow-y: auto;
 }
-.chatList{
+.rongcloud-chatList{
 
 }
-.chat_item:hover {
+.rongcloud-chat_item:hover {
     background: #e7f1f5;
 }
-.chatList.selected {
+.rongcloud-chatList.rongcloud-selected {
     background: #dde7f0;
 }
 
-.chat_item {
+.rongcloud-chat_item {
     /*overflow: hidden;*/
     padding: 0 0 0 0.3rem;
     cursor: pointer;
@@ -116,29 +116,29 @@ body{
     width: 100%;
 }
 
-.chat_item p {
+.rongcloud-chat_item p {
     margin: 0;
 }
 
-.chat_item.online {
+.rongcloud-chat_item.rongcloud-online {
     opacity: 1;
 }
 
-.chat_item.offline {
+.rongcloud-chat_item.rongcloud-offline {
     opacity: .3;
 }
-.chat_item.chatting {
+.rongcloud-chat_item.rongcloud-chatting {
     background-color: #e7f1f5;
 }
 
-.chat_item .photo {
+.rongcloud-chat_item .rongcloud-photo {
     float: left;
     /*margin-right: 10px;*/
     padding: 0.25rem 0;
     position: relative;
 }
 
-.chat_item .photo .img {
+.rongcloud-chat_item .rongcloud-photo .rongcloud-img {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
@@ -147,13 +147,13 @@ body{
     -webkit-border-radius: 50%;
 }
 
-.Presence {
+.rongcloud-Presence {
     border-radius: 50%;
     display: inline-block;
     background-color: #7fba00;
 }
 
-.Presence--stacked {
+.rongcloud-Presence--stacked {
     position: absolute;
     right: 0.1rem;
     bottom: 0.25rem;
@@ -162,23 +162,23 @@ body{
     height: 12px;
     border: 1px solid #00a0ff;
 }
-.chatList .chat_item .Presence--mainBox {
+.rongcloud-chatList .rongcloud-chat_item .rongcloud-Presence--mainBox {
     display: none;
     right: 0.1rem;
     border-color: #f4f8fc;
 }
-.chatList .chat_item.online .Presence--mainBox {
+.rongcloud-chatList .rongcloud-chat_item.rongcloud-online .rongcloud-Presence--mainBox {
     display: inline-block;
 }
-.offline .Presence {
+.rongcloud-offline .rongcloud-Presence {
     background-color: #8e969f;
 }
 
-.chat_item .info {
+.rongcloud-chat_item .rongcloud-info {
     overflow: hidden
 }
 
-.chat_item .info .nickname {
+.rongcloud-chat_item .rongcloud-info .rongcloud-nickname {
     font-weight: 400;
     color: #000;
     margin: 0;
@@ -187,7 +187,7 @@ body{
     font-size: 16px;
 }
 
-.chat_item .info .nickname_text {
+.rongcloud-chat_item .rongcloud-info .rongcloud-nickname_text {
     display: inline-block;
     *display: inline;
     *zoom: 1;
@@ -201,7 +201,7 @@ body{
     padding-left: .5rem;
 }
 
-.chat_item .ext {
+.rongcloud-chat_item .rongcloud-ext {
     float: right;
     color: #6b6f7c;
     font-size: 13px;
@@ -209,12 +209,12 @@ body{
     line-height: 2rem;
 }
 
-.chat_item .ext .attr {
+.rongcloud-chat_item .rongcloud-ext .rongcloud-attr {
     font-size: 12px;
     margin-right: 0.4rem;
 }
 
-.no-remind {
+.rongcloud-no-remind {
     width: 20px;
     height: 20px;
     vertical-align: middle;
@@ -223,20 +223,20 @@ body{
 }
 
 
-.chatList .badge{
+.rongcloud-chatList .rongcloud-badge{
     background-color:#f74b29 ;
     font-weight:normal;
 }
-.chatList .chat_item.online .Presence {
+.rongcloud-chatList .rongcloud-chat_item.rongcloud-online .rongcloud-Presence {
     background: #7fba00;
 }
-.chatList .chat_item.delete_item {
+.rongcloud-chatList .rongcloud-chat_item.rongcloud-delete_item {
     margin-left: -2rem;
 }
-.chat_item{
+.rongcloud-chat_item{
 
 }
-.delete_box{
+.rongcloud-delete_box{
     position: absolute;
     width: 2rem;
     height: 2rem;
@@ -244,7 +244,7 @@ body{
     right: -2rem;
     background-color: #ff3b2f;
 }
-.icon_delete{
+.rongcloud-icon_delete{
     width: 2rem;
     height: 2rem;
     vertical-align: middle;
@@ -252,36 +252,36 @@ body{
     background-position: 27px -132px;
 }
 /* send */
-.chatList .timer.status3 .timeBoundary{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status3 .rongcloud-timeBoundary{
     display: none;
 }
-.chatList .timer.status3 > i{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status3 > i{
     display: inline-block;
     background-position: 0 -50.6rem;
 }
-.chatList .timer.status3 .time{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status3 .rongcloud-time{
     float: right!important;
 }
 /* receive */
-.chatList .timer.status4 .timeBoundary{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status4 .rongcloud-timeBoundary{
     display: none;
 }
-.chatList .timer.status4 > i{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status4 > i{
     display: inline-block;
     background-position: 0 -53.1rem;
 }
-.chatList .timer.status4 .time{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status4 .rongcloud-time{
     float: right!important;
 }
 /* unsend */
-.chatList .timer.status5 .timeBoundary{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status5 .rongcloud-timeBoundary{
     display: none;
 }
-.chatList .timer.status5 > i{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status5 > i{
     display: inline-block;
     background-position: 0 -35rem;
 }
-.chatList .timer.status5 .time{
+.rongcloud-chatList .rongcloud-timer.rongcloud-status5 .rongcloud-time{
     float: right!important;
 }
 
@@ -289,19 +289,19 @@ body{
 
 
 /* dialog */
-.dialog header .icon_return,.kefuList header .icon_return{
+.rongcloud-dialog header .rongcloud-icon_return,.rongcloud-kefuList header .rongcloud-icon_return{
     vertical-align: middle;
     display: block;
 }
-.dialog header .icon_return img,.kefuList header .icon_return img{
+.rongcloud-dialog header .rongcloud-icon_return img,.rongcloud-kefuList header .rongcloud-icon_return img{
     width: .4rem;
 }
-.dialog header .title_name{
+.rongcloud-dialog header .rongcloud-title_name{
     position: relative;
     padding-left: 16px;
     color: #0099ff;
 }
-.dialog header .title_name i{
+.rongcloud-dialog header .rongcloud-title_name i{
     background-color: #ccc;
     position: absolute;
     left: 0;
@@ -310,16 +310,16 @@ body{
     width: 10px;
     height: 10px;
 }
-.dialog header .title_name.online i{
+.rongcloud-dialog header .rongcloud-title_name.rongcloud-online i{
     background-color: #7fba00;
 }
-.dialog .emptyBox{
+.rongcloud-dialog .rongcloud-emptyBox{
     height: 12rem;
 }
-.dialog .emptyBox p{
+.rongcloud-dialog .rongcloud-emptyBox p{
     color: #a4afb6;
 }
-.dialog .emptyBox .icon_people{
+.rongcloud-dialog .rongcloud-emptyBox .rongcloud-icon_people{
     width: 9rem;
     height: 9rem;
     background-position: .5rem -61.5rem;
@@ -360,20 +360,20 @@ body{
 #Messages {
    /*margin-top: 1.8rem;*/
 }
-#Messages .emptyBox {
+#Messages .rongcloud-emptyBox {
     display: none;
 }
-#Messages.empty .emptyBox {
+#Messages.rongcloud-empty .rongcloud-emptyBox {
     display: block;
 }
 
-#Messages.empty .MessagesInner {
+#Messages.rongcloud-empty .rongcloud-MessagesInner {
     display: none;
 }
-.Message-wrapper{
+.rongcloud-Message-wrapper{
     padding: 0 0.4rem;
 }
-.Messages-date {
+.rongcloud-Messages-date {
     text-align: center;
     padding: 10px 20px;
     border-bottom: 1px solid #c9deec;
@@ -381,7 +381,7 @@ body{
     height: 10px;
 }
 
-.Messages-date b {
+.rongcloud-Messages-date b {
     font-size: 9pt;
     font-weight: normal;
     color: #98caec;
@@ -390,11 +390,11 @@ body{
     padding: 0 20px;
 }
 
-/*.Message-wrapper > div:last-child {
+/*.rongcloud-Message-wrapper > div:last-child {
     padding-bottom: 10px;
 }*/
 
-.Message {
+.rongcloud-Message {
     position: relative;
     padding-left: 2rem;
     word-wrap: break-word;
@@ -402,71 +402,71 @@ body{
     border-spacing: 1px;
 }
 
-.Message-header {
+.rongcloud-Message-header {
     /*padding-top: 8px;*/
     margin-top: 9pt;
 }
 
-.avatar {
+.rongcloud-avatar {
     width: 54px;
     height: 54px;
     border-radius: 50%;
 }
 
-.Message img {
+.rongcloud-Message img {
     max-width: 250px;
     max-height: 250px;
 }
 
-.Message-avatar {
+.rongcloud-Message-avatar {
     position: absolute;
     margin-left: -3.5pc;
     width: 40px;
     height: 40px;
 }
 
-.Message-author {
+.rongcloud-Message-author {
     display: inline-block;
     position: relative;
     padding-right: 30px;
 }
 
-.Message-author {
+.rongcloud-Message-author {
     display: inline-block;
     position: relative;
     padding-right: 30px;
 }
 
-.Message-author .author, .Message-author .time {
+.rongcloud-Message-author .rongcloud-author, .rongcloud-Message-author .rongcloud-time {
     display: block;
     float: left;
     line-height: 1pc;
 }
 
-.Message-author > .author {
+.rongcloud-Message-author > .rongcloud-author {
     color: #8e969f;
 }
 
-.Message-author > .time {
+.rongcloud-Message-author > .rongcloud-time {
     color: #8e969f;
     font-size: 9pt;
     margin-left: 9pt;
 }
 
-.Message-body {
+.rongcloud-Message-body {
     position: relative;
     margin-right: 20px;
     font-size: 14px;
     color: #444;
 }
 
-#Messages .Message-text, #Messages .file-text {
+#Messages .rongcloud-Message-text, #Messages .rongcloud-file-text {
     position: relative;
     display: inline-block;
     max-width: 100%;
 }
 
-#Messages .Message-text pre {
+#Messages .rongcloud-Message-text pre {
     padding: 8px 6px;
     margin: 0;
     font-size: 14px;
@@ -480,37 +480,37 @@ body{
     font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 
-.Message-entry {
+.rongcloud-Message-entry {
     display: inline-block;
     max-width: 100%;
 }
 
-.Message-entry p {
+.rongcloud-Message-entry p {
     margin-bottom: 5px;
 }
 
-.Message-entry a {
+.rongcloud-Message-entry a {
     text-decoration: none;
 }
 
-#Messages .Message-img img {
+#Messages .rongcloud-Message-img img {
     border-radius: 5px;
 }
 /* 语音消息 */
-#Messages .Message-audio .Message-entry{
+#Messages .rongcloud-Message-audio .rongcloud-Message-entry{
     overflow:hidden;
 }
-#Messages .Message-audio .Message-entry>span{
+#Messages .rongcloud-Message-audio .rongcloud-Message-entry>span{
     float: left;
 }
-#Messages .Message-audio .audioBox {
+#Messages .rongcloud-Message-audio .rongcloud-audioBox {
     display: inline-block;
     background: url(../images/audioBg.png) 0 0/170px auto no-repeat;
     width: 165px;
     height: 36px;
     padding: 3px 0 3px 15px;
 }
-#Messages .Message-audio .audioBox i{
+#Messages .rongcloud-Message-audio .rongcloud-audioBox i{
     float: left;
     display: inline-block;
     width: 4px;
@@ -522,17 +522,17 @@ body{
     -o-transition: all 1s ease;
     transition: all 1s ease;
 }
-#Messages .Message-audio .audioBox i:nth-child(1){
+#Messages .rongcloud-Message-audio .rongcloud-audioBox i:nth-child(1){
     background: url(../images/audioBg.png) 0px -40px/170px auto no-repeat;
 }
-#Messages .Message-audio .audioBox i:nth-child(2){
+#Messages .rongcloud-Message-audio .rongcloud-audioBox i:nth-child(2){
     background: url(../images/audioBg.png) -7px -40px/170px auto no-repeat;
 }
-#Messages .Message-audio .audioBox i:nth-child(3){
+#Messages .rongcloud-Message-audio .rongcloud-audioBox i:nth-child(3){
     background: url(../images/audioBg.png) -14px -40px/170px auto no-repeat;
 }
 
-#Messages .Message-audio .audioBox.animate i:nth-child(2){
+#Messages .rongcloud-Message-audio .rongcloud-audioBox.rongcloud-animate i:nth-child(2){
     animation: audioAnimate 1s linear 0s infinite ;
     /* Firefox: */
     -moz-animation: audioAnimate 1s linear 0s infinite ;
@@ -541,7 +541,7 @@ body{
     /* Opera: */
     -o-animation: audioAnimate 1s linear 0s infinite ;
 }
-#Messages .Message-audio .audioBox.animate i:nth-child(3){
+#Messages .rongcloud-Message-audio .rongcloud-audioBox.rongcloud-animate i:nth-child(3){
     animation: audioAnimate 1s linear 0s infinite ;
     /* Firefox: */
     -moz-animation: audioAnimate 1s linear 0s infinite ;
@@ -573,12 +573,12 @@ body{
     from {opacity: 0;}
     to {opacity: 1;}
 }
-#Messages .Message-audio .audioTimer{
+#Messages .rongcloud-Message-audio .rongcloud-audioTimer{
     margin-top: 5px;
     margin-left: 10px;
     color: #8e969f;
 }
-#Messages .Message-audio .audioState{
+#Messages .rongcloud-Message-audio .rongcloud-audioState{
     width: 10px;
     height: 10px;
     display: inline-block;
@@ -587,16 +587,16 @@ body{
     border-radius: 5px;
 }
 /* 地图消息 */
-.mapBox{
+.rongcloud-mapBox{
     position: relative;
     border-radius: 5px;
     overflow: hidden;
 }
-.mapBox img{
+.rongcloud-mapBox img{
     width: 250px;
     height: 140px;
 }
-.mapBox span{
+.rongcloud-mapBox span{
     display: inline-block;
     position: absolute;
     bottom: 0;
@@ -610,17 +610,17 @@ body{
 }
 
 
-.message-scroll .Message .userMsg{/*width: 70%;*/ line-height: 16px;padding:5px 10px; background: #c7edfc;border-radius: 3px;color: white;float: right;margin-right: 10px;font-size: 12px;}
-.message-scroll .Message .userMsg.imgMsg{padding-top: 10px;}
-.message-scroll .Message .userLogo{width: 50px; height: 50px; border-radius: 25px; float: right;margin-right: 10px;}
+.rongcloud-message-scroll .rongcloud-Message .rongcloud-userMsg{/*width: 70%;*/ line-height: 16px;padding:5px 10px; background: #c7edfc;border-radius: 3px;color: white;float: right;margin-right: 10px;font-size: 12px;}
+.rongcloud-message-scroll .rongcloud-Message .rongcloud-userMsg.rongcloud-imgMsg{padding-top: 10px;}
+.rongcloud-message-scroll .rongcloud-Message .rongcloud-userLogo{width: 50px; height: 50px; border-radius: 25px; float: right;margin-right: 10px;}
 
 
-.message-scroll .userMsg{ position: relative;}
-.message-scroll .Message.youMsg .userMsg{float: left;margin-left: 10px;margin-right: 0; background: #f0f4f7;}
-.message-scroll .Message .line1{margin-top: 6px; height: 40px; line-height: 30px; /*min-width: 106px;*/}
-.message-scroll .Message.youMsg .userLogo{float: left;margin-right: 0;margin-left: 10px;}
+.rongcloud-message-scroll .rongcloud-userMsg{ position: relative;}
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg .rongcloud-userMsg{float: left;margin-left: 10px;margin-right: 0; background: #f0f4f7;}
+.rongcloud-message-scroll .rongcloud-Message .rongcloud-line1{margin-top: 6px; height: 40px; line-height: 30px; /*min-width: 106px;*/}
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg .rongcloud-userLogo{float: left;margin-right: 0;margin-left: 10px;}
 
-.message-scroll .Message.myMsg .arrow-dialog {
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg .rongcloud-arrow-dialog {
     width: 0px;
     height: 0px;
     border-top: 4px solid transparent;
@@ -633,17 +633,17 @@ body{
     right: -6px;
     margin-top: -4px;
 }
-.message-scroll .Message.myMsg .Message-header img{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg .rongcloud-Message-header img{
     display: none;
 }
-.message-scroll .Message.myMsg .Message-body{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg .rongcloud-Message-body{
     text-align: right;
     margin-right: 10px;
 }
-.message-scroll .Message.myMsg .Message-body .userMsg{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg .rongcloud-Message-body .rongcloud-userMsg{
     text-align: left;
 }
-.message-scroll .Message.youMsg .arrow-dialog {
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg .rongcloud-arrow-dialog {
     width: 0px;
     height: 0px;
     border-bottom: 4px solid transparent;
@@ -656,44 +656,44 @@ body{
     left: -6px;
     margin-top: -4px;
 }
-.message-scroll .Message.youMsg .Message-text {
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg .rongcloud-Message-text {
     display: none;
 }
-.message-scroll .Message.youMsg.status1 .Message-text .sprite{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg.rongcloud-status1 .rongcloud-Message-text .rongcloud-sprite{
      display: none;
 }
-.message-scroll .Message.myMsg .Message-text i{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg .rongcloud-Message-text i{
     width: 0.6rem;
     height: 0.6rem;
     vertical-align: middle;
     position: absolute;
 }
 
-.message-scroll .Message.myMsg.status1 .Message-text .sprite{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg.rongcloud-status1 .rongcloud-Message-text .rongcloud-sprite{
     display: inline-block;
     right: -0.1rem;
     bottom: -0.5rem;
     /*background-position: 0 -608px;*/
     background-position: 0 -18.2rem;
 }
-.message-scroll .Message.myMsg.status2 .Message-text .sprite{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-myMsg.rongcloud-status2 .rongcloud-Message-text .rongcloud-sprite{
     display: inline-block;
     left: -0.6rem;
     top: 0.37rem;
     background-position: 0 -12rem;
 }
-.message-scroll .Message.youMsg.secMsg .Message-header img{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg.rongcloud-secMsg .rongcloud-Message-header img{
     display: none;
 }
-.message-scroll .Message.youMsg.secMsg .Message-body .arrow-dialog{
+.rongcloud-message-scroll .rongcloud-Message.rongcloud-youMsg.rongcloud-secMsg .rongcloud-Message-body .rongcloud-arrow-dialog{
     display: none;
 }
-.Message-wrapper .sys-tips{ text-align: center; margin: 0.3rem 0}
-.Message-wrapper .sys-tips span{display: inline-block;color: #8e969f;padding: 0.2rem; background-color: #e7ecf2;border-radius: 5px;}
+.rongcloud-Message-wrapper .rongcloud-sys-tips{ text-align: center; margin: 0.3rem 0}
+.rongcloud-Message-wrapper .rongcloud-sys-tips span{display: inline-block;color: #8e969f;padding: 0.2rem; background-color: #e7ecf2;border-radius: 5px;}
 
 
 
-.footer{
+.rongcloud-footer{
     position: fixed;
     left: 0;
     bottom: 0;
@@ -704,14 +704,14 @@ body{
     /*display: -webkit-flex;*/
     background-color: #f8f8f8;
 }
-.inputWrap{
+.rongcloud-inputWrap{
     width: 100%;
     display: -webkit-flex;
     height: 1.5rem;
     line-height: 0.9rem;
     padding: 0.3rem 0;
 }
-.footer:before{
+.rongcloud-footer:before{
     position: absolute;
     top: -1px;
     left: 0;
@@ -721,70 +721,70 @@ body{
     border-top: 1px solid #c9deec;
     -webkit-transform: scaleY(0.5);
 }
-.footer a{
+.rongcloud-footer a{
     display: block;
     /*-webkit-box-flex: 1;*/
     box-sizing: border-box;
     padding-top: 0;
 }
-.footer .sprite{
+.rongcloud-footer .rongcloud-sprite{
     /*width: 2.2rem;
     height: 2.2rem;*/
     display: block;
     margin: 0 auto
 }
-.footer a > span{
+.rongcloud-footer a > span{
     color: #93999d;
     font-size: 14px;
     display: inline-block;
     /*margin-top: .1rem;*/
 }
-/*.footer a .icon_message{
+/*.rongcloud-footer a .rongcloud-icon_message{
     background-position: -3.9rem 0;
 }
-.footer a .icon_contact{
+.rongcloud-footer a .rongcloud-icon_contact{
     background-position: -3.9rem -3.9rem;
 }
-.footer a .icon_myself{
+.rongcloud-footer a .rongcloud-icon_myself{
     background-position: -3.8rem -7.7rem;
 }
-.footer a.cur .icon_message{
+.rongcloud-footer a.rongcloud-cur .rongcloud-icon_message{
     background-position: 0.1rem 0;
 }
-.footer a:hover .icon_message{
+.rongcloud-footer a:hover .rongcloud-icon_message{
     background-position: 0.1rem 0;
 }
-.footer a.cur .icon_contact{
+.rongcloud-footer a.rongcloud-cur .rongcloud-icon_contact{
     background-position: 0.1rem -3.9rem;
 }
-.footer a:hover .icon_contact{
+.rongcloud-footer a:hover .rongcloud-icon_contact{
     background-position: 0.1rem -3.9rem;
 }
-.footer a.cur .icon_myself{
+.rongcloud-footer a.rongcloud-cur .rongcloud-icon_myself{
     background-position: 0.2rem -7.7rem;
 }
-.footer a:hover .icon_myself{
+.rongcloud-footer a:hover .rongcloud-icon_myself{
     background-position: 0.2rem -7.7rem;
 }*/
 
 
-.footer .message_wrap{flex-grow:1;overflow: hidden;display: inline-block;}
-.footer .message_type_btn{ width: 1.5rem; /*height: 1.1rem;*/ border-right: 1px solid #abadbb;}
-.footer .message_type_btn2{ width: 1.5rem;padding-left: 0rem; padding-right: .2rem; border: none}
+.rongcloud-footer .rongcloud-message_wrap{flex-grow:1;overflow: hidden;display: inline-block;}
+.rongcloud-footer .rongcloud-message_type_btn{ width: 1.5rem; /*height: 1.1rem;*/ border-right: 1px solid #abadbb;}
+.rongcloud-footer .rongcloud-message_type_btn2{ width: 1.5rem;padding-left: 0rem; padding-right: .2rem; border: none}
 
-.footer .message_type2_btn{ border: none; padding: 0 0.2rem}
-.footer a.message_type2_btn > span { color: #0099ff}
-.footer .message_type_btn i{
+.rongcloud-footer .rongcloud-message_type2_btn{ border: none; padding: 0 0.2rem}
+.rongcloud-footer a.rongcloud-message_type2_btn > span { color: #0099ff}
+.rongcloud-footer .rongcloud-message_type_btn i{
     width: 1rem;
     height: 1rem;
     vertical-align: top;
     display: inline-block;}
-.footer .message_type_btn i.icon_message_type1{ background-position: -1.2rem 0.17rem;}
-.footer .message_type_btn2 i.message_emoji_btn{ background-position: -1.2rem -2.4rem;}
-.footer .message_type_btn i.icon_message_type1:hover{ background-position: 0.17rem 0.17rem;}
-.footer .message_type_btn2 i.message_emoji_btn:hover{ background-position: 0.1rem -2.4rem;}
+.rongcloud-footer .rongcloud-message_type_btn i.rongcloud-icon_message_type1{ background-position: -1.2rem 0.17rem;}
+.rongcloud-footer .rongcloud-message_type_btn2 i.rongcloud-message_emoji_btn{ background-position: -1.2rem -2.4rem;}
+.rongcloud-footer .rongcloud-message_type_btn i.rongcloud-icon_message_type1:hover{ background-position: 0.17rem 0.17rem;}
+.rongcloud-footer .rongcloud-message_type_btn2 i.rongcloud-message_emoji_btn:hover{ background-position: 0.1rem -2.4rem;}
 
-.footer .message_wrap textarea{
+.rongcloud-footer .rongcloud-message_wrap textarea{
     padding: 0px 0.2rem;
     /*line-height: 2.2rem;*/
     width: 100%;
@@ -794,31 +794,31 @@ body{
 
 
 /* 客服评价 */
-.layermbox {
+.rongcloud-layermbox {
     position: relative;
     z-index: 19891014;
 }
-.layermmain {
+.rongcloud-layermmain {
     display: table;
     pointer-events: none;
 }
-.laymshade, .layermmain {
+.rongcloud-laymshade, .rongcloud-layermmain {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
 }
-.laymshade {
+.rongcloud-laymshade {
     background-color: rgba(0,0,0, .5);
     pointer-events: auto;
 }
-.layermmain .section {
+.rongcloud-layermmain .rongcloud-section {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
 }
-.layermchild {
+.rongcloud-layermchild {
     position: relative;
     display: inline-block;
     text-align: left;
@@ -829,7 +829,7 @@ body{
     pointer-events: auto;
     max-width: 250px;
 }
-.layermbtn {
+.rongcloud-layermbtn {
     position: relative;
     height: 40px;
     line-height: 40px;
@@ -837,7 +837,7 @@ body{
     text-align: center;
     border-top: 1px solid #EBEBEB;
 }
-.layermbtn:before {
+.rongcloud-layermbtn:before {
     content: '|';
     position: absolute;
     width: 1px;
@@ -846,12 +846,12 @@ body{
     top: 0;
     background-color: #EBEBEB;
 }
-.layermchild h3, .layermbtn span {
+.rongcloud-layermchild h3, .rongcloud-layermbtn span {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-.layermbtn span {
+.rongcloud-layermbtn span {
     position: relative;
     display: inline-block;
     width: 50%;
@@ -861,15 +861,15 @@ body{
     border-radius: 0 3px 0 0;
     color: #0099ff;
 }
-.layermbtn span:first-child {
+.rongcloud-layermbtn span:first-child {
     height: 39px;
     border-radius: 0 0 0 3px;
 }
-.layermcont{
+.rongcloud-layermcont{
     padding: 20px 20px 10px;
     text-align: center;
 }
-.layermbox .btn{
+.rongcloud-layermbox .rongcloud-btn{
     display: inline-block;
     width: 54px;
     height: 30px;
@@ -880,38 +880,38 @@ body{
     overflow: hidden;
     padding: 0;
 }
-.layermbox .btn:hover{
+.rongcloud-layermbox .rongcloud-btn:hover{
     background-color: #0099ff;
     color: #fff;
     border-color: #0099ff;
 }
 
-.layermbox .layerPanel1{
+.rongcloud-layermbox .rongcloud-layerPanel1{
     width: 190px;
     display: inline-block;
     margin-top: 15px;
     margin-bottom: 15px;
 }
-.layermbox .layerPanel1 > a:first-child{
+.rongcloud-layermbox .rongcloud-layerPanel1 > a:first-child{
     margin-right: 20px;
 }
-.layermbox .type2 .layerPanel1 > a.cur{
+.rongcloud-layermbox .rongcloud-type2 .rongcloud-layerPanel1 > a.rongcloud-cur{
     background-color: #0099ff;
     color: #fff;
     border-color: #0099ff;
 }
-.layermbox .layerPanel2{
+.rongcloud-layermbox .rongcloud-layerPanel2{
     width: 100%;
     display: inline-block;
 }
-.layermbox .labels{
+.rongcloud-layermbox .rongcloud-labels{
     margin: 10px 0;
     font-size: 12px;
 }
-.layermbox .layerPanel2 .labels a{
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-labels a{
     line-height: 30px;
 }
-.layermbox .layerPanel2 .btn{
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-btn{
     width: 47%;
     border-radius: 1rem;
     height: 30px;
@@ -919,24 +919,24 @@ body{
     color: #676e6f;
     padding: 0;
 }
-.layermbox .layerPanel2 .btn:hover{
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-btn:hover{
     color: #fff;
 }
-.layermbox .layerPanel2 .btn.cur{
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-btn.rongcloud-cur{
     background-color: #0099ff;
     color: #fff;
     border-color: #0099ff;
 }
-.layermbox .layerPanel2 .btn:nth-child(2n+1){
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-btn:nth-child(2n+1){
     margin-right: 3%;
 }
-.layermbox .layerPanel2 .btn:nth-child(3),.layermbox .layerPanel2 .btn:nth-child(4){
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-btn:nth-child(3),.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-btn:nth-child(4){
     margin-top: 8px;
 }
-.layermbox .layerPanel2 .suggestBox{
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-suggestBox{
     margin-bottom: 10px;
 }
-.layermbox .layerPanel2 .suggestBox textarea{
+.rongcloud-layermbox .rongcloud-layerPanel2 .rongcloud-suggestBox textarea{
     outline: none;
     resize: none;
     min-height: 70px;
@@ -946,10 +946,10 @@ body{
     border: 1px solid #c0c0c0;
     border-radius: 3px;
 }
-.layermbox .subBox{
+.rongcloud-layermbox .rongcloud-subBox{
 
 }
-.layermbox .subBox .btn{
+.rongcloud-layermbox .rongcloud-subBox .rongcloud-btn{
     width: 70%;
     font-size: 14px;
     border-radius: 4px;
@@ -960,19 +960,19 @@ body{
     line-height: 30px;
     margin-right: 0 !important;
 }
-.layermbox .feedback{
+.rongcloud-layermbox .rongcloud-feedback{
     background-color: rgba(0,0,0,.6);
     color: #fff;
     border: none;
 }
-.layermbox .feedback .layermcont{
+.rongcloud-layermbox .rongcloud-feedback .rongcloud-layermcont{
     padding: 15px;
     font-size: 16px;
 }
-.layermbox .type1 .star{
+.rongcloud-layermbox .rongcloud-type1 .rongcloud-star{
     width:100%;
 }
-.layermbox .type1 .star img{
+.rongcloud-layermbox .rongcloud-type1 .rongcloud-star img{
     width: 30px;
     cursor: pointer;
     margin: 0 2px 0 0;
@@ -981,27 +981,27 @@ body{
 
 
 /* 表情 */
-.pub-faces {
+.rongcloud-pub-faces {
     background: #fff;
     width: 100%;
     padding: 0 0.4rem;
     /*padding: 25px 0 17px;*/
 }
-.pub-faces .ui-carousel {
+.rongcloud-pub-faces .rongcloud-ui-carousel {
     /*margin: auto;
     width: 320px;*/
     width: 100%;
 
     overflow: hidden;
 }
-.ui-carousel {
+.rongcloud-ui-carousel {
     position: relative;
     -webkit-transform: translate(0,0);
 }
-.pub-faces .face-panel-wrap {
+.rongcloud-pub-faces .rongcloud-face-panel-wrap {
     overflow: hidden;
 }
-.ui-carousel-inner {
+.rongcloud-ui-carousel-inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -1009,29 +1009,29 @@ body{
     padding: initial;
 }
 
-.pub-faces .face-panel-1 {
-    background-image: url(http://7ximdq.com1.z0.glb.clouddn.com/1431445636499);
+.rongcloud-pub-faces .rongcloud-face-panel-1 {
+    background-image: url(http://7ximdq.rongcloud-com1.rongcloud-z0.rongcloud-glb.rongcloud-clouddn.rongcloud-com/1431445636499);
 }
-.pub-faces .face-panel-2 {
-    background-image: url(http://7ximdq.com1.z0.glb.clouddn.com/1431445637189);
+.rongcloud-pub-faces .rongcloud-face-panel-2 {
+    background-image: url(http://7ximdq.rongcloud-com1.rongcloud-z0.rongcloud-glb.rongcloud-clouddn.rongcloud-com/1431445637189);
 }
-.pub-faces .face-panel-3 {
-    background-image: url(http://7ximdq.com1.z0.glb.clouddn.com/1431445637328);
+.rongcloud-pub-faces .rongcloud-face-panel-3 {
+    background-image: url(http://7ximdq.rongcloud-com1.rongcloud-z0.rongcloud-glb.rongcloud-clouddn.rongcloud-com/1431445637328);
 }
-.pub-faces .face-panel-4 {
-    background-image: url(http://7ximdq.com1.z0.glb.clouddn.com/1431445637897);
+.rongcloud-pub-faces .rongcloud-face-panel-4 {
+    background-image: url(http://7ximdq.rongcloud-com1.rongcloud-z0.rongcloud-glb.rongcloud-clouddn.rongcloud-com/1431445637897);
 }
-.pub-faces .face-panel-5 {
-    background-image: url(http://7ximdq.com1.z0.glb.clouddn.com/1431445638189);
+.rongcloud-pub-faces .rongcloud-face-panel-5 {
+    background-image: url(http://7ximdq.rongcloud-com1.rongcloud-z0.rongcloud-glb.rongcloud-clouddn.rongcloud-com/1431445638189);
 }
-.pub-faces .face-panel {
+.rongcloud-pub-faces .rongcloud-face-panel {
     /*background: #F0EFF5 no-repeat 50% 50%;*/
     background-size: 320px auto;
     width: 320px;
     height: 120px;
     float: left;
 }
-.ui-carousel-item {
+.rongcloud-ui-carousel-item {
     position: relative;
     /*z-index: 9;*/
     /*display: none;*/
@@ -1043,7 +1043,7 @@ li {
     list-style: none;
 }
 
-.pub-faces .ui-carousel-indicators {
+.rongcloud-pub-faces .rongcloud-ui-carousel-indicators {
     position: relative;
     left: initial;
     width: initial;
@@ -1052,7 +1052,7 @@ li {
     /*margin-top: 25px;*/
     margin-bottom: 0;
 }
-.ui-carousel-indicators {
+.rongcloud-ui-carousel-indicators {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -1064,13 +1064,13 @@ li {
     -webkit-transform: translate(0,0);
     text-align: center;
 }
-.pub-faces .ui-carousel-indicators li {
+.rongcloud-pub-faces .rongcloud-ui-carousel-indicators li {
     margin: 0 3px;
 }
-.pub-faces .ui-carousel-indicators li {
+.rongcloud-pub-faces .rongcloud-ui-carousel-indicators li {
     background-color: #ddd;
 }
-.ui-carousel-indicators li {
+.rongcloud-ui-carousel-indicators li {
     display: inline-block;
     width: 8px;
     height: 8px;
@@ -1078,27 +1078,27 @@ li {
     border-radius: 8px;
     background-color: rgba(255,255,255,.3);
 }
-.ui-carousel-inner>.js-active {
+.rongcloud-ui-carousel-inner>.rongcloud-js-active {
     left: 0;
     z-index: 10;
 }
-.ui-carousel-inner>.js-show, .ui-carousel-inner>.js-active, .ui-carousel-inner>.js-next, .ui-carousel-inner>.js-prev {
+.rongcloud-ui-carousel-inner>.rongcloud-js-show, .rongcloud-ui-carousel-inner>.rongcloud-js-active, .rongcloud-ui-carousel-inner>.rongcloud-js-next, .rongcloud-ui-carousel-inner>.rongcloud-js-prev {
     display: block;
 }
 
-.pub-faces .ui-carousel-indicators li.js-active {
+.rongcloud-pub-faces .rongcloud-ui-carousel-indicators li.rongcloud-js-active {
     background-color: #64b5e8;
 }
-.ui-carousel-indicators li.js-active {
+.rongcloud-ui-carousel-indicators li.rongcloud-js-active {
     background-color: #fff;
 }
-.pub-faces .ui-carousel-indicators li {
+.rongcloud-pub-faces .rongcloud-ui-carousel-indicators li {
     margin: 0 3px;
 }
-.pub-faces .ui-carousel-indicators li {
+.rongcloud-pub-faces .rongcloud-ui-carousel-indicators li {
     background-color: #ddd;
 }
-.ui-carousel-indicators li {
+.rongcloud-ui-carousel-indicators li {
     display: inline-block;
     width: 8px;
     height: 8px;
@@ -1107,7 +1107,7 @@ li {
     background-color: rgba(255,255,255,.3);
 }
 
-.pub-faces .face-panel span {
+.rongcloud-pub-faces .rongcloud-face-panel span {
     width: 45px;
     height: 40px;
     float: left;
@@ -1116,27 +1116,27 @@ li {
 
 
 /* footerBtn */
-.footerBtn{
+.rongcloud-footerBtn{
     width: 100%;
     height: 1.2rem;
     position: relative;
 }
-.footerBtn .emojiWrap{
+.rongcloud-footerBtn .rongcloud-emojiWrap{
     position: absolute;
     left: 0;
     background: 0;
     background: #fff;
 }
-.footerBtn .emojiWrap>li{
+.rongcloud-footerBtn .rongcloud-emojiWrap>li{
     float: left;
     width: 1.5rem;
     height: 1.2rem;
 }
-.footerBtn .emojiWrap>li:first-child{
+.rongcloud-footerBtn .rongcloud-emojiWrap>li:first-child{
     background-position: 0.43rem -6.64rem;
     background-size: 3.9rem auto;
 }
-.footerBtn .send_btn{
+.rongcloud-footerBtn .rongcloud-send_btn{
     line-height: 1.2rem;
     padding:0 0.4rem;
     color: #fff;
@@ -1146,7 +1146,7 @@ li {
     bottom: 0;
     text-decoration: none;
 }
-.star-on{
+.rongcloud-star-on{
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -1155,7 +1155,7 @@ li {
   background:url(../images/star_on.png);
   background-size: 30px 30px;
 }
-.star-off{
+.rongcloud-star-off{
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -1165,7 +1165,7 @@ li {
   background-size: 30px 30px;
 }
 
-.swipe {
+.rongcloud-swipe {
 	overflow: hidden;
 	visibility: hidden;
 	position: relative;
@@ -1174,17 +1174,17 @@ li {
   -ms-user-select:none;
   user-select:none;
 }
-.swipe-wrap {
+.rongcloud-swipe-wrap {
 	overflow: hidden;
 	position: relative;
 }
-.swipe-wrap > figure {
+.rongcloud-swipe-wrap > figure {
 	float: left;
 	width: 100%;
 	position: relative;
   padding: 5px;
 }
-.swipe-wrap  div {
+.rongcloud-swipe-wrap  div {
   width: 1.2rem;
   height: 1.2rem;
   margin: 0.1rem;
@@ -1192,7 +1192,7 @@ li {
   line-height: 1.2rem;
   float: left;
 }
-.delete-emoji {
+.rongcloud-delete-emoji {
   width: 1.2rem;
   height: 1.2rem;
   margin: 0.1rem;
@@ -1202,16 +1202,16 @@ li {
   background-image: url("../images/delete.png");
   background-size: 1.2rem 1.2rem;
 }
-.chat_item_m{
+.rongcloud-chat_item_m{
   margin-left: 0rem;
   transition:margin-left 0.5s;
   -moz-transition:margin-left 0.5s; /* Firefox 4 */
   -webkit-transition:margin-left 0.5s; /* Safari and Chrome */
   -o-transition:margin-left 0.5s; /* Opera */
 }
-.chat_item_m.normal{
+.rongcloud-chat_item_m.rongcloud-normal{
   margin-left: 0rem!important;
 }
-.chat_item_m.remove{
+.rongcloud-chat_item_m.rongcloud-remove{
   margin-left: -2rem;
 }

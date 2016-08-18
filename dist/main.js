@@ -13277,10 +13277,10 @@ conversationDirective.directive("textmessage", [function () {
             restrict: "E",
             scope: { msg: "=" },
             template: '<div class="">' +
-                '<div class="Message-text">' +
-                '<div class="arrow-dialog"></div>' +
+                '<div class="rongcloud-Message-text">' +
+                '<div class="rongcloud-arrow-dialog"></div>' +
                 // '<i class="sprite"></i>' +
-                '<pre class="Message-entry userMsg" ng-bind-html="msg.content|trustHtml"><br></pre>' +
+                '<pre class="rongcloud-Message-entry rongcloud-userMsg" ng-bind-html="msg.content|trustHtml"><br></pre>' +
                 '</div>' +
                 '</div>'
         };
@@ -13290,8 +13290,8 @@ conversationDirective.directive("imagemessage", [function () {
             restrict: "E",
             scope: { msg: "=" },
             template: '<div class="">' +
-                '<div class="Message-img">' +
-                '<span id="{{\'rebox_\'+$id}}" class="Message-entry" style="">' +
+                '<div class="rongcloud-Message-img">' +
+                '<span id="{{\'rebox_\'+$id}}" class="rongcloud-Message-entry" style="">' +
                 // '<img src="images/barBg.png" alt=""/>' +
                 '<a href="{{msg.imageUri}}"><img ng-src="{{msg.content}}"  data-image="{{msg.imageUri}}" alt=""/></a>' +
                 '</span>' +
@@ -13329,8 +13329,8 @@ conversationDirective.directive("includinglinkmessage", [function () {
             restrict: "E",
             scope: { msg: "=" },
             template: '<div class="">' +
-                '<div class="Message-text">' +
-                '<pre class="Message-entry" style="">' +
+                '<div class="rongcloud-Message-text">' +
+                '<pre class="rongcloud-Message-entry" style="">' +
                 '维护中 由于我们的服务商出现故障，融云官网及相关服务也受到影响，给各位用户带来的不便，还请谅解。  您可以通过 <a href="#">【官方微博】</a>了解</pre>' +
                 '</div>' +
                 '</div>'
@@ -13341,10 +13341,10 @@ conversationDirective.directive("voicemessage", ["$timeout", function ($timeout)
             restrict: "E",
             scope: { msg: "=" },
             template: '<div class="">' +
-                '<div class="Message-audio">' +
-                '<span class="Message-entry" style="">' +
-                '<span class="audioBox clearfix " ng-click="play()" ng-class="{\'animate\':isplaying}" ><i></i><i></i><i></i></span>' +
-                '<div style="display: inline-block;" ><span class="audioTimer">{{msg.duration}}”</span><span class="audioState" ng-show="msg.isUnReade"></span></div>' +
+                '<div class="rongcloud-Message-audio">' +
+                '<span class="rongcloud-Message-entry" style="">' +
+                '<span class="rongcloud-audioBox rongcloud-clearfix " ng-click="play()" ng-class="{\'rongcloud-animate\':isplaying}" ><i></i><i></i><i></i></span>' +
+                '<div style="display: inline-block;" ><span class="rongcloud-audioTimer">{{msg.duration}}”</span><span class="rongcloud-audioState" ng-show="msg.isUnReade"></span></div>' +
                 '</span>' +
                 '</div>' +
                 '</div>',
@@ -13377,9 +13377,9 @@ conversationDirective.directive("locationmessage", [function () {
             restrict: "E",
             scope: { msg: "=" },
             template: '<div class="">' +
-                '<div class="Message-map">' +
-                '<span class="Message-entry" style="">' +
-                '<div class="mapBox">' +
+                '<div class="rongcloud-Message-map">' +
+                '<span class="rongcloud-Message-entry" style="">' +
+                '<div class="rongcloud-mapBox">' +
                 '<img ng-src="{{msg.content}}" alt="">' +
                 '<span>{{msg.poi}}</span>' +
                 '</div>' +
@@ -13393,11 +13393,11 @@ conversationDirective.directive("richcontentmessage", [function () {
             restrict: "E",
             scope: { msg: "=" },
             template: '<div class="">' +
-                '<div class="Message-image-text">' +
-                '<span class="Message-entry" style="">' +
+                '<div class="rongcloud-Message-image-text">' +
+                '<span class="rongcloud-Message-entry" style="">' +
                 '<div class="image-textBox">' +
                 '<h4>{{msg.title}}</h4>' +
-                '<div class="cont clearfix">' +
+                '<div class="rongcloud-cont rongcloud-clearfix">' +
                 '<img ng-src="{{msg.imageUri}}" alt="">' +
                 '<div>{{msg.content}}</div>' +
                 '</div>' +
@@ -13515,30 +13515,30 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
         return {
             restrict: "E",
             scope: { item: "=" },
-            template: '<div class="chat_item">' +
-                '<div class="static_item">' +
-                '<div class="ext">' +
-                '<p class="attr clearfix" ng-show="item.unreadMessageCount>0">' +
-                '<span class="badge">{{item.unreadMessageCount>99?"99+":item.unreadMessageCount}}</span>' +
+            template: '<div class="rongcloud-chat_item">' +
+                '<div class="rongcloud-static_item">' +
+                '<div class="rongcloud-ext">' +
+                '<p class="rongcloud-attr rongcloud-clearfix" ng-show="item.unreadMessageCount>0">' +
+                '<span class="rongcloud-badge">{{item.unreadMessageCount>99?"99+":item.unreadMessageCount}}</span>' +
                 '</p>' +
                 '</div>' +
-                '<div class="photo">' +
-                '<img class="img" ng-src="{{item.portraitUri}}" err-src="../widget/images/barBg.png" alt="">' +
-                '<i class="Presence Presence--stacked Presence--mainBox"></i>' +
+                '<div class="rongcloud-photo">' +
+                '<img class="rongcloud-img" ng-src="{{item.portraitUri}}" err-src="../widget/images/barBg.png" alt="">' +
+                '<i class="rongcloud-Presence rongcloud-Presence--stacked rongcloud-Presence--mainBox"></i>' +
                 '</div>' +
-                '<div class="info">' +
-                '<h3 class="nickname">' +
-                '<span class="nickname_text">{{item.title}}</span>' +
+                '<div class="rongcloud-info">' +
+                '<h3 class="rongcloud-nickname">' +
+                '<span class="rongcloud-nickname_text">{{item.title}}</span>' +
                 '</h3>' +
                 '</div>' +
                 '</div>' +
-                '<div class="delete_box">' +
-                '<span class="sprite2 icon_delete" ng-click="remove($event)"></span>' +
+                '<div class="rongcloud-delete_box">' +
+                '<span class="rongcloud-sprite2 rongcloud-icon_delete" ng-click="remove($event)"></span>' +
                 '</div>' +
                 '</div>',
             link: function (scope, ele, attr) {
-                var item = ele[0].querySelector(".chat_item");
-                var deletebox = ele[0].querySelector(".delete_box");
+                var item = ele[0].querySelector(".rongcloud-chat_item");
+                var deletebox = ele[0].querySelector(".rongcloud-delete_box");
                 var start, left, width = deletebox.clientWidth;
                 var Emove = function (e) {
                     var move = e.changedTouches[0].clientX - start;
@@ -13556,7 +13556,7 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
                 item.addEventListener("touchstart", function (e) {
                     width = deletebox.clientWidth;
                     start = (e.changedTouches[0].clientX);
-                    item.className = "chat_item";
+                    item.className = "rongcloud-chat_item";
                     left = parseFloat(item.style["margin-left"]) || 0;
                     document.addEventListener("touchmove", Emove);
                     document.addEventListener("touchend", End);
@@ -13565,11 +13565,11 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
                     var move = e.changedTouches[0].clientX - start;
                     var marginleft = left + move;
                     if (marginleft > -width / 2) {
-                        item.className = "chat_item chat_item_m normal";
+                        item.className = "rongcloud-chat_item rongcloud-chat_item_m normal";
                         item.style["margin-left"] = "0px";
                     }
                     else {
-                        item.className = "chat_item chat_item_m remove";
+                        item.className = "rongcloud-chat_item rongcloud-chat_item_m rongcloud-remove";
                         item.style["margin-left"] = -width + "px";
                     }
                     document.removeEventListener("touchmove", Emove);
@@ -14829,22 +14829,22 @@ angular.module('RongWebIMWidget').run(['$templateCache', function($templateCache
   'use strict';
 
   $templateCache.put('./src/ts/conversation/conversation.tpl.html',
-    "<div id=rong-conversation class=\"main kefuList\" ng-show=showSelf><evaluatedir type=evaluate.type display=evaluate.showevaluate confirm=evaluate.onConfirm(data) cancle=evaluate.onCancle()></evaluatedir><div class=\"main_inner clearfix\"><header class=header><a class=icon_return href=\"javascript:void 0\" ng-click=close()><img src=../widget/images/arrow-left.png width=16 alt=\"\"></a><div class=title><a class=\"title_name online\"><i class=Presence></i>{{currentConversation.title}}</a></div><a href=\"javascript:void 0\"></a></header><div id=wrapper ng-iscroll=wrapper ng-style=wrapperbottom><div id=scroller><div id=Messages><div class=\"MessagesInner message-scroll\"><div class=Message-wrapper><div ng-repeat=\"item in messageList\" ng-switch=item.panelType><div class=Messages-date ng-switch-when=104><b>{{item.sentTime|historyTime}}</b></div><div class=Messages-date ng-switch-when=105><b my-tap=getHistory()>查看历史消息</b></div><div class=Messages-date ng-switch-when=106><b my-tap=getMoreMessage()>获取更多消息</b></div><div class=sys-tips ng-switch-when=2><span>{{item.content.content}}</span></div><div class=\"Message status1\" ng-switch-when=1 ng-class=\"{'youMsg':item.messageDirection==2,'myMsg':item.messageDirection==1}\"><div class=Messages-unreadLine></div><div><div class=Message-header><img class=\"img u-isActionable Message-avatar avatar\" ng-src=\"{{item.content.userInfo.portraitUri||'../widget/images/webBg.png'}}\" src=../widget/images/barBg.png alt=\"\"></div></div><div class=Message-body ng-switch=item.messageType><textmessage ng-switch-when=TextMessage msg=item.content></textmessage><imagemessage ng-switch-when=ImageMessage msg=item.content></imagemessage><voicemessage ng-switch-when=VoiceMessage msg=item.content></voicemessage><locationmessage ng-switch-when=LocationMessage msg=item.content></locationmessage></div></div></div></div></div></div></div></div><footer class=\"footer clearfix\"><div id=funcPanel style=\"display: flex;display: -webkit-flex\"><a id=uploadfile href=# class=\"pull-left message_type_btn\" ng-show=\"_inputPanelState==0\"><i class=\"sprite2 icon_message_type1\"></i></a> <a href=# class=\"pull-left message_type2_btn\" ng-click=switchPerson() ng-show=\"_inputPanelState==2\"><span>转人工服务</span></a><div class=message_wrap><textarea id=inputMsg ng-focus=\"showemoji=false\" ctrl-enter-keys fun=send() ctrlenter=false ondrop=\"return false\" ng-model=currentConversation.messageContent placeholder=请输入文字...></textarea></div><a href=# class=\"pull-right message_type_btn message_type_btn2\" ng-show=\"_inputPanelState==0\"><i class=\"sprite2 message_emoji_btn\" ng-click=\"showemoji=!showemoji\"></i></a></div><div class=pub-faces ng-show=showemoji><swipe-emoji content=currentConversation></swipe-emoji></div><div class=\"footerBtn clearfix\" ng-show=showemoji><ul class=\"clearfix emojiWrap\"><li class=sprite2></li></ul><a href=\"\" class=send_btn ng-click=send()>发送</a></div></footer></div></div>"
+    "<div id=rong-conversation class=\"rongcloud-main rongcloud-kefuList\" ng-show=showSelf><evaluatedir type=evaluate.type display=evaluate.showevaluate confirm=evaluate.onConfirm(data) cancle=evaluate.onCancle()></evaluatedir><div class=\"rongcloud-main_inner rongcloud-clearfix\"><header class=rongcloud-header><a class=rongcloud-icon_return href=\"javascript:void 0\" ng-click=close()><img src=../widget/images/arrow-left.png width=16 alt=\"\"></a><div class=rongcloud-title><a class=\"rongcloud-title_name rongcloud-online\"><i class=rongcloud-Presence></i>{{currentConversation.title}}</a></div><a href=\"javascript:void 0\"></a></header><div id=wrapper ng-iscroll=wrapper ng-style=wrapperbottom><div id=scroller><div id=Messages><div class=\"rongcloud-MessagesInner rongcloud-message-scroll\"><div class=rongcloud-Message-wrapper><div ng-repeat=\"item in messageList\" ng-switch=item.panelType><div class=rongcloud-Messages-date ng-switch-when=104><b>{{item.sentTime|historyTime}}</b></div><div class=rongcloud-Messages-date ng-switch-when=105><b my-tap=getHistory()>查看历史消息</b></div><div class=rongcloud-Messages-date ng-switch-when=106><b my-tap=getMoreMessage()>获取更多消息</b></div><div class=rongcloud-sys-tips ng-switch-when=2><span>{{item.content.content}}</span></div><div class=\"rongcloud-Message rongcloud-status1\" ng-switch-when=1 ng-class=\"{'rongcloud-youMsg':item.messageDirection==2,'rongcloud-myMsg':item.messageDirection==1}\"><div class=rongcloud-Messages-unreadLine></div><div><div class=rongcloud-Message-header><img class=\"rongcloud-img rongcloud-u-isActionable rongcloud-Message-avatar rongcloud-avatar\" ng-src=\"{{item.content.userInfo.portraitUri||'../widget/images/webBg.png'}}\" src=../widget/images/barBg.png alt=\"\"></div></div><div class=rongcloud-Message-body ng-switch=item.messageType><textmessage ng-switch-when=TextMessage msg=item.content></textmessage><imagemessage ng-switch-when=ImageMessage msg=item.content></imagemessage><voicemessage ng-switch-when=VoiceMessage msg=item.content></voicemessage><locationmessage ng-switch-when=LocationMessage msg=item.content></locationmessage></div></div></div></div></div></div></div></div><footer class=\"rongcloud-footer rongcloud-clearfix\"><div id=funcPanel style=\"display: flex;display: -webkit-flex\"><a id=uploadfile href=# class=\"rongcloud-pull-left rongcloud-message_type_btn\" ng-show=\"_inputPanelState==0\"><i class=\"rongcloud-sprite2 rongcloud-icon_message_type1\"></i></a> <a href=# class=\"rongcloud-pull-left rongcloud-message_type2_btn\" ng-click=switchPerson() ng-show=\"_inputPanelState==2\"><span>转人工服务</span></a><div class=rongcloud-message_wrap><textarea id=inputMsg ng-focus=\"showemoji=false\" ctrl-enter-keys fun=send() ctrlenter=false ondrop=\"return false\" ng-model=currentConversation.messageContent placeholder=请输入文字...></textarea></div><a href=# class=\"rongcloud-pull-right rongcloud-message_type_btn rongcloud-message_type_btn2\" ng-show=\"_inputPanelState==0\"><i class=\"rongcloud-sprite2 rongcloud-message_emoji_btn\" ng-click=\"showemoji=!showemoji\"></i></a></div><div class=rongcloud-pub-faces ng-show=showemoji><swipe-emoji content=currentConversation></swipe-emoji></div><div class=\"rongcloud-footerBtn rongcloud-clearfix\" ng-show=showemoji><ul class=\"rongcloud-clearfix rongcloud-emojiWrap\"><li class=rongcloud-sprite2></li></ul><a href=\"\" class=rongcloud-send_btn ng-click=send()>发送</a></div></footer></div></div>"
   );
 
 
   $templateCache.put('./src/ts/conversation/swipeEmoji.tpl.html',
-    "<div class=swipe id=slider><div class=swipe-wrap><figure ng-repeat=\"item in data\"><emoji ng-repeat=\"it in item.emojis\" item=it content=$parent.content></emoji><span class=delete-emoji index=-1 alt=\"\" ng-click=delete()></span></figure></div><ol id=position class=ui-carousel-indicators><li ng-repeat=\"item in data\" ng-class=\"{'js-active':item.show}\"></li></ol></div>"
+    "<div class=rongcloud-swipe id=slider><div class=rongcloud-swipe-wrap><figure ng-repeat=\"item in data\"><emoji ng-repeat=\"it in item.emojis\" item=it content=$parent.content></emoji><span class=rongcloud-delete-emoji index=-1 alt=\"\" ng-click=delete()></span></figure></div><ol id=position class=rongcloud-ui-carousel-indicators><li ng-repeat=\"item in data\" ng-class=\"{'rongcloud-js-active':item.show}\"></li></ol></div>"
   );
 
 
   $templateCache.put('./src/ts/conversationlist/conversationList.tpl.html',
-    "<div id=rong-conversation-list class=\"main kefuList\" ng-show=conversationListServer.showSelf><div class=\"main_inner clearfix\"><header class=header><a class=icon_return href=\"javascript:void 0\"><img src=../widget/images/arrow-left.png alt=\"\" ng-click=minbtn()></a><div class=title><a class=\"title_name online\"><i class=Presence></i>最近联系人</a></div><a href=\"javascript:void 0\"></a></header><div class=chatBox id=chatBox><div class=chatArea><div class=chatList><conversation-item ng-repeat=\"item in conversationListServer.conversationList\" item=item></conversation-item></div></div></div></div></div>"
+    "<div id=rong-conversation-list class=\"rongcloud-main rongcloud-kefuList\" ng-show=conversationListServer.showSelf><div class=\"rongcloud-main_inner rongcloud-clearfix\"><header class=rongcloud-header><a class=rongcloud-icon_return href=\"javascript:void 0\"><img src=../widget/images/arrow-left.png alt=\"\" ng-click=minbtn()></a><div class=rongcloud-title><a class=\"rongcloud-title_name rongcloud-online\"><i class=rongcloud-Presence></i>最近联系人</a></div><a href=\"javascript:void 0\"></a></header><div class=rongcloud-chatBox id=chatBox><div class=rongcloud-chatArea><div class=rongcloud-chatList><conversation-item ng-repeat=\"item in conversationListServer.conversationList\" item=item></conversation-item></div></div></div></div></div>"
   );
 
 
   $templateCache.put('./src/ts/evaluate/evaluate.tpl.html',
-    "<div class=layermbox ng-show=display><div class=laymshade></div><div class=layermmain><div class=section><div class=layermchild ng-show=!end><div class=layermcont><div class=type1 ng-show=\"type==1\"><h4>&nbsp;评价客服</h4><div class=layerPanel1><div class=star><span ng-repeat=\"item in stars track by $index\"><span ng-class=\"{'star-on':$index<data.stars,'star-off':$index>=data.stars}\" ng-click=confirm($index+1)></span></span></div></div></div><div class=type2 ng-show=\"type==2\"><h4>&nbsp;&nbsp;是否解决了您的问题 ？</h4><div class=layerPanel1><a class=\"btn btnY\" ng-class=\"{'cur':data.value===true}\" href=javascript:void(0); ng-click=confirm(true)>是</a> <a class=\"btn btnN\" ng-class=\"{'cur':data.value===false}\" href=javascript:void(0); ng-click=confirm(false)>否</a></div></div><div class=layerPanel2 ng-show=displayDescribe><p>是否有以下情况 ？</p><div class=labels><span ng-repeat=\"item in labels\"><a class=btn ng-class=\"{'cur':data.label==item}\" ng-click=\"data.label=item\" href=\"\">{{item}}</a></span></div><div class=suggestBox><textarea name=\"\" placeholder=欢迎给我们的服务提建议~ ng-model=data.describe></textarea></div><div class=subBox><a class=btn href=\"\" ng-click=commit()>提交评价</a></div></div></div><div class=layermbtn><span ng-click=confirm()>跳过</span><span ng-click=cancle()>取消</span></div></div><div class=\"layermchild feedback\" ng-show=end><div class=layermcont>感谢您的反馈 ^ - ^ ！</div></div></div></div></div>"
+    "<div class=rongcloud-layermbox ng-show=display><div class=rongcloud-laymshade></div><div class=rongcloud-layermmain><div class=rongcloud-section><div class=rongcloud-layermchild ng-show=!end><div class=rongcloud-layermcont><div class=rongcloud-type1 ng-show=\"type==1\"><h4>&nbsp;评价客服</h4><div class=rongcloud-layerPanel1><div class=rongcloud-star><span ng-repeat=\"item in stars track by $index\"><span ng-class=\"{'rongcloud-star-on':$index<data.stars,'rongcloud-star-off':$index>=data.stars}\" ng-click=confirm($index+1)></span></span></div></div></div><div class=rongcloud-type2 ng-show=\"type==2\"><h4>&nbsp;&nbsp;是否解决了您的问题 ？</h4><div class=rongcloud-layerPanel1><a class=\"rongcloud-btn rongcloud-btnY\" ng-class=\"{'rongcloud-cur':data.value===true}\" href=javascript:void(0); ng-click=confirm(true)>是</a> <a class=\"rongcloud-btn rongcloud-btnN\" ng-class=\"{'rongcloud-cur':data.value===false}\" href=javascript:void(0); ng-click=confirm(false)>否</a></div></div><div class=rongcloud-layerPanel2 ng-show=displayDescribe><p>是否有以下情况 ？</p><div class=rongcloud-labels><span ng-repeat=\"item in labels\"><a class=rongcloud-btn ng-class=\"{'rongcloud-cur':data.label==item}\" ng-click=\"data.label=item\" href=\"\">{{item}}</a></span></div><div class=rongcloud-suggestBox><textarea name=\"\" placeholder=欢迎给我们的服务提建议~ ng-model=data.describe></textarea></div><div class=rongcloud-subBox><a class=rongcloud-btn href=\"\" ng-click=commit()>提交评价</a></div></div></div><div class=rongcloud-layermbtn><span ng-click=confirm()>跳过</span><span ng-click=cancle()>取消</span></div></div><div class=\"rongcloud-layermchild rongcloud-feedback\" ng-show=end><div class=rongcloud-layermcont>感谢您的反馈 ^ - ^ ！</div></div></div></div></div>"
   );
 
 

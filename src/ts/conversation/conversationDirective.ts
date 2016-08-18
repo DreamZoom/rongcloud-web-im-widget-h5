@@ -208,10 +208,10 @@ conversationDirective.directive("textmessage", [function() {
         restrict: "E",
         scope: { msg: "=" },
         template: '<div class="">' +
-        '<div class="Message-text">' +
-        '<div class="arrow-dialog"></div>' +
+        '<div class="rongcloud-Message-text">' +
+        '<div class="rongcloud-arrow-dialog"></div>' +
         // '<i class="sprite"></i>' +
-        '<pre class="Message-entry userMsg" ng-bind-html="msg.content|trustHtml"><br></pre>' +
+        '<pre class="rongcloud-Message-entry rongcloud-userMsg" ng-bind-html="msg.content|trustHtml"><br></pre>' +
         '</div>' +
         '</div>'
     }
@@ -222,8 +222,8 @@ conversationDirective.directive("imagemessage", [function() {
         restrict: "E",
         scope: { msg: "=" },
         template: '<div class="">' +
-        '<div class="Message-img">' +
-        '<span id="{{\'rebox_\'+$id}}" class="Message-entry" style="">' +
+        '<div class="rongcloud-Message-img">' +
+        '<span id="{{\'rebox_\'+$id}}" class="rongcloud-Message-entry" style="">' +
         // '<img src="images/barBg.png" alt=""/>' +
         '<a href="{{msg.imageUri}}"><img ng-src="{{msg.content}}"  data-image="{{msg.imageUri}}" alt=""/></a>' +
         '</span>' +
@@ -262,8 +262,8 @@ conversationDirective.directive("includinglinkmessage", [function() {
         restrict: "E",
         scope: { msg: "=" },
         template: '<div class="">' +
-        '<div class="Message-text">' +
-        '<pre class="Message-entry" style="">' +
+        '<div class="rongcloud-Message-text">' +
+        '<pre class="rongcloud-Message-entry" style="">' +
         '维护中 由于我们的服务商出现故障，融云官网及相关服务也受到影响，给各位用户带来的不便，还请谅解。  您可以通过 <a href="#">【官方微博】</a>了解</pre>' +
         '</div>' +
         '</div>'
@@ -276,10 +276,10 @@ conversationDirective.directive("voicemessage", ["$timeout", function($timeout: 
         restrict: "E",
         scope: { msg: "=" },
         template: '<div class="">' +
-        '<div class="Message-audio">' +
-        '<span class="Message-entry" style="">' +
-        '<span class="audioBox clearfix " ng-click="play()" ng-class="{\'animate\':isplaying}" ><i></i><i></i><i></i></span>' +
-        '<div style="display: inline-block;" ><span class="audioTimer">{{msg.duration}}”</span><span class="audioState" ng-show="msg.isUnReade"></span></div>' +
+        '<div class="rongcloud-Message-audio">' +
+        '<span class="rongcloud-Message-entry" style="">' +
+        '<span class="rongcloud-audioBox rongcloud-clearfix " ng-click="play()" ng-class="{\'rongcloud-animate\':isplaying}" ><i></i><i></i><i></i></span>' +
+        '<div style="display: inline-block;" ><span class="rongcloud-audioTimer">{{msg.duration}}”</span><span class="rongcloud-audioState" ng-show="msg.isUnReade"></span></div>' +
         '</span>' +
         '</div>' +
         '</div>',
@@ -316,9 +316,9 @@ conversationDirective.directive("locationmessage", [function() {
         restrict: "E",
         scope: { msg: "=" },
         template: '<div class="">' +
-        '<div class="Message-map">' +
-        '<span class="Message-entry" style="">' +
-        '<div class="mapBox">' +
+        '<div class="rongcloud-Message-map">' +
+        '<span class="rongcloud-Message-entry" style="">' +
+        '<div class="rongcloud-mapBox">' +
         '<img ng-src="{{msg.content}}" alt="">' +
         '<span>{{msg.poi}}</span>' +
         '</div>' +
@@ -333,11 +333,11 @@ conversationDirective.directive("richcontentmessage", [function() {
         restrict: "E",
         scope: { msg: "=" },
         template: '<div class="">' +
-        '<div class="Message-image-text">' +
-        '<span class="Message-entry" style="">' +
+        '<div class="rongcloud-Message-image-text">' +
+        '<span class="rongcloud-Message-entry" style="">' +
         '<div class="image-textBox">' +
         '<h4>{{msg.title}}</h4>' +
-        '<div class="cont clearfix">' +
+        '<div class="rongcloud-cont rongcloud-clearfix">' +
         '<img ng-src="{{msg.imageUri}}" alt="">' +
         '<div>{{msg.content}}</div>' +
         '</div>' +

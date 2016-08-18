@@ -9,7 +9,7 @@ conversationListDir.directive("rongConversationList", [function() {
         templateUrl: "./src/ts/conversationlist/conversationList.tpl.html",
         controller: "conversationListController",
         link: function(scope: any, ele: angular.IRootElementService) {
-            
+
         }
     }
 }]);
@@ -19,30 +19,30 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
         return {
             restrict: "E",
             scope: { item: "=" },
-            template: '<div class="chat_item">' +
-            '<div class="static_item">' +
-            '<div class="ext">' +
-            '<p class="attr clearfix" ng-show="item.unreadMessageCount>0">' +
-            '<span class="badge">{{item.unreadMessageCount>99?"99+":item.unreadMessageCount}}</span>' +
+            template: '<div class="rongcloud-chat_item">' +
+            '<div class="rongcloud-static_item">' +
+            '<div class="rongcloud-ext">' +
+            '<p class="rongcloud-attr rongcloud-clearfix" ng-show="item.unreadMessageCount>0">' +
+            '<span class="rongcloud-badge">{{item.unreadMessageCount>99?"99+":item.unreadMessageCount}}</span>' +
             '</p>' +
             '</div>' +
-            '<div class="photo">' +
-            '<img class="img" ng-src="{{item.portraitUri}}" err-src="../widget/images/barBg.png" alt="">' +
-            '<i class="Presence Presence--stacked Presence--mainBox"></i>' +
+            '<div class="rongcloud-photo">' +
+            '<img class="rongcloud-img" ng-src="{{item.portraitUri}}" err-src="../widget/images/barBg.png" alt="">' +
+            '<i class="rongcloud-Presence rongcloud-Presence--stacked rongcloud-Presence--mainBox"></i>' +
             '</div>' +
-            '<div class="info">' +
-            '<h3 class="nickname">' +
-            '<span class="nickname_text">{{item.title}}</span>' +
+            '<div class="rongcloud-info">' +
+            '<h3 class="rongcloud-nickname">' +
+            '<span class="rongcloud-nickname_text">{{item.title}}</span>' +
             '</h3>' +
             '</div>' +
             '</div>' +
-            '<div class="delete_box">' +
-            '<span class="sprite2 icon_delete" ng-click="remove($event)"></span>' +
+            '<div class="rongcloud-delete_box">' +
+            '<span class="rongcloud-sprite2 rongcloud-icon_delete" ng-click="remove($event)"></span>' +
             '</div>' +
             '</div>',
             link: function(scope: any, ele: angular.IRootElementService, attr: angular.IAttributes) {
-                var item = <any>ele[0].querySelector(".chat_item");
-                var deletebox = ele[0].querySelector(".delete_box");
+                var item = <any>ele[0].querySelector(".rongcloud-chat_item");
+                var deletebox = ele[0].querySelector(".rongcloud-delete_box");
                 var start, left, width = deletebox.clientWidth;
                 var Emove = function(e) {
                     var move = e.changedTouches[0].clientX - start;
@@ -58,7 +58,7 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
                 item.addEventListener("touchstart", function(e) {
                     width = deletebox.clientWidth;
                     start = (e.changedTouches[0].clientX);
-                    item.className = "chat_item";
+                    item.className = "rongcloud-chat_item";
                     left = parseFloat(item.style["margin-left"]) || 0;
                     document.addEventListener("touchmove", Emove);
                     document.addEventListener("touchend", End);
@@ -68,10 +68,10 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
                     var move = e.changedTouches[0].clientX - start;
                     var marginleft = left + move;
                     if (marginleft > -width / 2) {
-                        item.className = "chat_item chat_item_m normal";
+                        item.className = "rongcloud-chat_item rongcloud-chat_item_m normal";
                         item.style["margin-left"] = "0px";
                     } else {
-                        item.className = "chat_item chat_item_m remove";
+                        item.className = "rongcloud-chat_item rongcloud-chat_item_m rongcloud-remove";
                         item.style["margin-left"] = -width + "px";
                     }
                     document.removeEventListener("touchmove", Emove);
