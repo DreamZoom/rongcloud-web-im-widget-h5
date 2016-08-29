@@ -335,7 +335,7 @@ conversationDirective.directive("richcontentmessage", [function() {
         template: '<div class="">' +
         '<div class="rongcloud-Message-image-text">' +
         '<span class="rongcloud-Message-entry" style="">' +
-        '<div class="image-textBox">' +
+        '<div class="rongcloud-image-textBox">' +
         '<h4>{{msg.title}}</h4>' +
         '<div class="rongcloud-cont rongcloud-clearfix">' +
         '<img ng-src="{{msg.imageUri}}" alt="">' +

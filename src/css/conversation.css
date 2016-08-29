@@ -608,6 +608,40 @@ body{
     background: rgba(0,0,0,.5);
     color: #fff;
 }
+/* 单图文消息 */
+.rongcloud-image-textBox{
+    padding-left: 15px;
+    border-left: 2px solid #0099ff;
+    display: inline-block;
+}
+.rongcloud-image-textBox h4{
+    height: 24px;
+    font-size: 16px;
+    text-align: left;
+}
+.rongcloud-image-textBox .rongcloud-cont img{
+    float: left;
+    width: 60px;
+    height:60px;
+    border-radius: 5px;
+}
+.rongcloud-image-textBox .rongcloud-cont div{
+    display: -webkit-box!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    float: left;
+    margin-left: 10px;
+    line-height: 20px;
+    color: #8e969f;
+    font-size: 13px;
+    /*max-width: 225px;*/
+    max-height: 60px;
+    width: 55%;
+    text-align: left;
+}
 
 
 .rongcloud-message-scroll .rongcloud-Message .rongcloud-userMsg{/*width: 70%;*/ line-height: 16px;padding:5px 10px; background: #c7edfc;border-radius: 3px;color: white;float: right;margin-right: 10px;font-size: 12px;}

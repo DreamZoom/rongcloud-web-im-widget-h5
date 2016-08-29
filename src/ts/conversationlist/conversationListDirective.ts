@@ -23,7 +23,7 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
             '<div class="rongcloud-static_item">' +
             '<div class="rongcloud-ext">' +
             '<p class="rongcloud-attr rongcloud-clearfix" ng-show="item.unreadMessageCount>0">' +
-            '<span class="rongcloud-badge">{{item.unreadMessageCount>99?"99+":item.unreadMessageCount}}</span>' +
+            '<span class="rongcloud-badge badge">{{item.unreadMessageCount>99?"99+":item.unreadMessageCount}}</span>' +
             '</p>' +
             '</div>' +
             '<div class="rongcloud-photo">' +
@@ -68,7 +68,7 @@ conversationListDir.directive("conversationItem", ["conversationServer", "conver
                     var move = e.changedTouches[0].clientX - start;
                     var marginleft = left + move;
                     if (marginleft > -width / 2) {
-                        item.className = "rongcloud-chat_item rongcloud-chat_item_m normal";
+                        item.className = "rongcloud-chat_item rongcloud-chat_item_m rongcloud-normal";
                         item.style["margin-left"] = "0px";
                     } else {
                         item.className = "rongcloud-chat_item rongcloud-chat_item_m rongcloud-remove";
