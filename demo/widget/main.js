@@ -12619,6 +12619,7 @@ conversationController.controller("conversationController", ["$scope",
         var qiniuuploader;
         $scope.$parent.myScrollOptions = {
             'wrapper': {
+                snap: false,
                 click: true
             }
         };
@@ -13911,7 +13912,9 @@ evaluate.directive("evaluatedir", ["$timeout", function ($timeout) {
 var kefu = angular.module("RongCloudkefu", ["RongWebIMWidget"]);
 kefu.service("RongKefu", ["WebIMWidget", function (WebIMWidget) {
         var kefuServer = {};
-        var defaultconfig = {};
+        var defaultconfig = {
+            __isCustomerService: true
+        };
         kefuServer.init = function (config) {
             angular.extend(defaultconfig, config);
             kefuServer._config = config;
@@ -13946,19 +13949,24 @@ var KefuPostion;
 /// <reference path="../../typings/tsd.d.ts"/>
 /// <reference path="../../vendor/loadscript/script.d.ts"/>
 var widget = angular.module("RongWebIMWidget", ["RongWebIMWidget.conversationServer", "RongWebIMWidget.directive",
-    "RongWebIMWidget.conversationListServer", "RongIMSDKModule", "Evaluate", 'ng-iscroll'
+    "RongWebIMWidget.conversationListServer", "RongIMSDKModule", "Evaluate", 'ng-iscroll', "RongCloudkefu"
 ]);
-widget.run(["$http", "WebIMWidget", "widgetConfig", function ($http, WebIMWidget, widgetConfig) {
+widget.run(["$http", "WebIMWidget", "widgetConfig", "RongKefu", function ($http, WebIMWidget, widgetConfig, RongKefu) {
         var protocol = location.protocol === "https:" ? "https:" : "http:";
-        $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.0.14.min.js", function () {
-            $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.0.14.min.js", function () {
+        $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.2.2.min.js", function () {
+            $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.2.2.min.js", function () {
                 RongIMLib.RongIMEmoji && RongIMLib.RongIMEmoji.init();
             });
-            $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.0.14.min.js", function () {
+            $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.2.2.min.js", function () {
                 RongIMLib.RongIMVoice && RongIMLib.RongIMVoice.init();
             });
             if (widgetConfig.config) {
-                WebIMWidget.init(widgetConfig.config);
+                if (widgetConfig.config.__isKefu) {
+                    RongKefu.init(widgetConfig.config);
+                }
+                else {
+                    WebIMWidget.init(widgetConfig.config);
+                }
             }
         });
         $script.get(protocol + "//cdn.bootcss.com/plupload/2.1.8/plupload.full.min.js", function () { });
@@ -14460,6 +14468,11 @@ var WidgetModule;
                     ter.code = SDKmsg.content.code;
                     msg.content = ter;
                     break;
+                case WidgetModule.MessageType.UnknownMessage:
+                    var unk = new InformationNotificationMessage();
+                    msg.panelType = 2; //灰条消息
+                    unk.content = "不支持此类型消息请在其他端查看";
+                    msg.content = unk;
                 default:
                     console.log("未处理消息类型:" + SDKmsg.messageType);
                     break;
@@ -14905,7 +14918,7 @@ angular.module('RongWebIMWidget').run(['$templateCache', function($templateCache
   'use strict';
 
   $templateCache.put('./src/ts/conversation/conversation.tpl.html',
-    "<div id=rong-conversation class=\"rongcloud-main rongcloud-kefuList\" ng-show=showSelf><evaluatedir type=evaluate.type display=evaluate.showevaluate confirm=evaluate.onConfirm(data) cancle=evaluate.onCancle()></evaluatedir><div class=\"rongcloud-main_inner rongcloud-clearfix\"><header class=rongcloud-header><a class=rongcloud-icon_return href=\"javascript:void 0\" ng-click=close()><img src=../widget/images/arrow-left.png width=16 alt=\"\"></a><div class=rongcloud-title><a class=\"rongcloud-title_name rongcloud-online\"><i class=rongcloud-Presence></i>{{currentConversation.title}}</a></div><a href=\"javascript:void 0\"></a></header><div id=wrapper ng-iscroll=wrapper ng-style=wrapperbottom><div id=scroller><div id=Messages><div class=\"rongcloud-MessagesInner rongcloud-message-scroll\"><div class=rongcloud-Message-wrapper><div ng-repeat=\"item in messageList\" ng-switch=item.panelType><div class=rongcloud-Messages-date ng-switch-when=104><b>{{item.sentTime|historyTime}}</b></div><div class=rongcloud-Messages-date ng-switch-when=105><b my-tap=getHistory()>查看历史消息</b></div><div class=rongcloud-Messages-date ng-switch-when=106><b my-tap=getMoreMessage()>获取更多消息</b></div><div class=rongcloud-sys-tips ng-switch-when=2><span>{{item.content.content}}</span></div><div class=\"rongcloud-Message rongcloud-status1\" ng-switch-when=1 ng-class=\"{'rongcloud-youMsg':item.messageDirection==2,'rongcloud-myMsg':item.messageDirection==1}\"><div class=rongcloud-Messages-unreadLine></div><div><div class=rongcloud-Message-header><img class=\"rongcloud-img rongcloud-u-isActionable rongcloud-Message-avatar rongcloud-avatar\" ng-src=\"{{item.content.userInfo.portraitUri||'../widget/images/webBg.png'}}\" src=../widget/images/barBg.png alt=\"\"></div></div><div class=rongcloud-Message-body ng-switch=item.messageType><textmessage ng-switch-when=TextMessage msg=item.content></textmessage><imagemessage ng-switch-when=ImageMessage msg=item.content></imagemessage><voicemessage ng-switch-when=VoiceMessage msg=item.content></voicemessage><locationmessage ng-switch-when=LocationMessage msg=item.content></locationmessage><richcontentmessage ng-switch-when=RichContentMessage msg=item.content></richcontentmessage></div></div></div></div></div></div></div></div><footer class=\"rongcloud-footer rongcloud-clearfix\"><div id=funcPanel style=\"display: flex;display: -webkit-flex\"><a id=uploadfile href=# class=\"rongcloud-pull-left rongcloud-message_type_btn\" ng-show=\"_inputPanelState==0\"><i class=\"rongcloud-sprite2 rongcloud-icon_message_type1\"></i></a> <a href=# class=\"rongcloud-pull-left rongcloud-message_type2_btn\" ng-click=switchPerson() ng-show=\"_inputPanelState==2\"><span>转人工服务</span></a><div class=rongcloud-message_wrap><textarea id=inputMsg ng-focus=\"showemoji=false\" ctrl-enter-keys fun=send() ctrlenter=false ondrop=\"return false\" ng-model=currentConversation.messageContent placeholder=请输入文字...></textarea></div><a href=# class=\"rongcloud-pull-right rongcloud-message_type_btn rongcloud-message_type_btn2\" ng-show=\"_inputPanelState==0\"><i class=\"rongcloud-sprite2 rongcloud-message_emoji_btn\" ng-click=\"showemoji=!showemoji\"></i></a></div><div class=rongcloud-pub-faces ng-show=showemoji><swipe-emoji content=currentConversation></swipe-emoji></div><div class=\"rongcloud-footerBtn rongcloud-clearfix\" ng-show=showemoji><ul class=\"rongcloud-clearfix rongcloud-emojiWrap\"><li class=rongcloud-sprite2></li></ul><a href=\"\" class=rongcloud-send_btn ng-click=send()>发送</a></div></footer></div></div>"
+    "<div id=rong-conversation class=\"rongcloud-main rongcloud-kefuList\" ng-show=showSelf><evaluatedir type=evaluate.type display=evaluate.showevaluate confirm=evaluate.onConfirm(data) cancle=evaluate.onCancle()></evaluatedir><div class=\"rongcloud-main_inner rongcloud-clearfix\"><header class=rongcloud-header><a class=rongcloud-icon_return href=\"javascript:void 0\" ng-click=close()><img src=../widget/images/arrow-left.png width=16 alt=\"\"></a><div class=rongcloud-title><a class=\"rongcloud-title_name rongcloud-online\"><i class=rongcloud-Presence></i>{{currentConversation.title}}</a></div><a href=\"javascript:void 0\"></a></header><div id=wrapper ng-iscroll ng-style=wrapperbottom><div id=scroller><div id=Messages><div class=\"rongcloud-MessagesInner rongcloud-message-scroll\"><div class=rongcloud-Message-wrapper><div ng-repeat=\"item in messageList\" ng-switch=item.panelType><div class=rongcloud-Messages-date ng-switch-when=104><b>{{item.sentTime|historyTime}}</b></div><div class=rongcloud-Messages-date ng-switch-when=105><b my-tap=getHistory()>查看历史消息</b></div><div class=rongcloud-Messages-date ng-switch-when=106><b my-tap=getMoreMessage()>获取更多消息</b></div><div class=rongcloud-sys-tips ng-switch-when=2><span>{{item.content.content}}</span></div><div class=\"rongcloud-Message rongcloud-status1\" ng-switch-when=1 ng-class=\"{'rongcloud-youMsg':item.messageDirection==2,'rongcloud-myMsg':item.messageDirection==1}\"><div class=rongcloud-Messages-unreadLine></div><div><div class=rongcloud-Message-header><img class=\"rongcloud-img rongcloud-u-isActionable rongcloud-Message-avatar rongcloud-avatar\" ng-src=\"{{item.content.userInfo.portraitUri||'../widget/images/webBg.png'}}\" src=../widget/images/barBg.png alt=\"\"></div></div><div class=rongcloud-Message-body ng-switch=item.messageType><textmessage ng-switch-when=TextMessage msg=item.content></textmessage><imagemessage ng-switch-when=ImageMessage msg=item.content></imagemessage><voicemessage ng-switch-when=VoiceMessage msg=item.content></voicemessage><locationmessage ng-switch-when=LocationMessage msg=item.content></locationmessage><richcontentmessage ng-switch-when=RichContentMessage msg=item.content></richcontentmessage></div></div></div></div></div></div></div></div><footer class=\"rongcloud-footer rongcloud-clearfix\"><div id=funcPanel style=\"display: flex;display: -webkit-flex\"><a id=uploadfile href=# class=\"rongcloud-pull-left rongcloud-message_type_btn\" ng-show=\"_inputPanelState==0\"><i class=\"rongcloud-sprite2 rongcloud-icon_message_type1\"></i></a> <a href=# class=\"rongcloud-pull-left rongcloud-message_type2_btn\" ng-click=switchPerson() ng-show=\"_inputPanelState==2\"><span>转人工服务</span></a><div class=rongcloud-message_wrap><textarea id=inputMsg ng-focus=\"showemoji=false\" ctrl-enter-keys fun=send() ctrlenter=false ondrop=\"return false\" ng-model=currentConversation.messageContent placeholder=请输入文字...></textarea></div><a href=# class=\"rongcloud-pull-right rongcloud-message_type_btn rongcloud-message_type_btn2\" ng-show=\"_inputPanelState==0\"><i class=\"rongcloud-sprite2 rongcloud-message_emoji_btn\" ng-click=\"showemoji=!showemoji\"></i></a></div><div class=rongcloud-pub-faces ng-show=showemoji><swipe-emoji content=currentConversation></swipe-emoji></div><div class=\"rongcloud-footerBtn rongcloud-clearfix\" ng-show=showemoji><ul class=\"rongcloud-clearfix rongcloud-emojiWrap\"><li class=rongcloud-sprite2></li></ul><a href=\"\" class=rongcloud-send_btn ng-click=send()>发送</a></div></footer></div></div>"
   );
 
 

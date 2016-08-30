@@ -17,6 +17,7 @@ conversationController.controller("conversationController", ["$scope",
 
         $scope.$parent.myScrollOptions = {
             'wrapper': {
+                snap: false,
                 click: true
             },
         };

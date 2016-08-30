@@ -7,7 +7,9 @@ var kefu = angular.module("RongCloudkefu", ["RongWebIMWidget"]);
 
 kefu.service("RongKefu", ["WebIMWidget", function(WebIMWidget: WebIMWidget) {
     var kefuServer = <KefuServer>{};
-    var defaultconfig = <any>{};
+    var defaultconfig = <any>{
+        __isCustomerService: true
+    };
 
     kefuServer.init = function(config) {
         angular.extend(defaultconfig, config)

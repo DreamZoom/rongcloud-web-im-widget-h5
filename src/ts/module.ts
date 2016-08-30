@@ -244,6 +244,13 @@ module WidgetModule {
                     ter.code = SDKmsg.content.code;
                     msg.content = ter;
                     break;
+                case WidgetModule.MessageType.UnknownMessage:
+
+                    var unk = new InformationNotificationMessage();
+                    msg.panelType = 2;//灰条消息
+                    unk.content = "不支持此类型消息请在其他端查看";
+
+                    msg.content = unk;
                 default:
                     console.log("未处理消息类型:" + SDKmsg.messageType);
                     break;

@@ -2,21 +2,25 @@
 /// <reference path="../../vendor/loadscript/script.d.ts"/>
 
 var widget = angular.module("RongWebIMWidget", ["RongWebIMWidget.conversationServer", "RongWebIMWidget.directive",
-    "RongWebIMWidget.conversationListServer", "RongIMSDKModule", "Evaluate", 'ng-iscroll'
+    "RongWebIMWidget.conversationListServer", "RongIMSDKModule", "Evaluate", 'ng-iscroll',"RongCloudkefu"
 ]);
 
-widget.run(["$http", "WebIMWidget", "widgetConfig", function($http: angular.IHttpService,
-    WebIMWidget: WebIMWidget, widgetConfig: widgetConfig) {
+widget.run(["$http", "WebIMWidget", "widgetConfig", "RongKefu", function($http: angular.IHttpService,
+    WebIMWidget: WebIMWidget, widgetConfig: widgetConfig, RongKefu: KefuServer) {
     var protocol = location.protocol === "https:" ? "https:" : "http:";
-    $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.0.14.min.js", function() {
-        $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.0.14.min.js", function() {
+    $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.2.2.min.js", function() {
+        $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.2.2.min.js", function() {
             RongIMLib.RongIMEmoji && RongIMLib.RongIMEmoji.init();
         });
-        $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.0.14.min.js", function() {
+        $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.2.2.min.js", function() {
             RongIMLib.RongIMVoice && RongIMLib.RongIMVoice.init();
         });
         if (widgetConfig.config) {
-            WebIMWidget.init(widgetConfig.config);
+            if (widgetConfig.config.__isKefu) {
+                RongKefu.init(widgetConfig.config);
+            } else {
+                WebIMWidget.init(widgetConfig.config);
+            }
         }
     });
     $script.get(protocol + "//cdn.bootcss.com/plupload/2.1.8/plupload.full.min.js", function() { });
