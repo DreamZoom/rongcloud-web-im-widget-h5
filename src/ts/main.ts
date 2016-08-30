@@ -194,7 +194,8 @@ widget.factory("WebIMWidget", ["$q", "conversationServer",
                             addMessageAndOperation(msg);
                             break;
                         case WidgetModule.MessageType.UnknownMessage:
-                            //未知消息自行处理
+                            // 转成灰条消息
+                            addMessageAndOperation(msg);
                             break;
                         default:
                             //未捕获的消息类型
