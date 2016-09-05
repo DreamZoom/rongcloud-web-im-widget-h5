@@ -8,11 +8,11 @@ var widget = angular.module("RongWebIMWidget", ["RongWebIMWidget.conversationSer
 widget.run(["$http", "WebIMWidget", "widgetConfig", "RongKefu", function($http: angular.IHttpService,
     WebIMWidget: WebIMWidget, widgetConfig: widgetConfig, RongKefu: KefuServer) {
     var protocol = location.protocol === "https:" ? "https:" : "http:";
-    $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.2.2.min.js", function() {
-        $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.2.2.min.js", function() {
+    $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.2.1.min.js", function() {
+        $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.2.1.min.js", function() {
             RongIMLib.RongIMEmoji && RongIMLib.RongIMEmoji.init();
         });
-        $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.2.2.min.js", function() {
+        $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.2.1.min.js", function() {
             RongIMLib.RongIMVoice && RongIMLib.RongIMVoice.init();
         });
         if (widgetConfig.config) {

@@ -13114,7 +13114,7 @@ conversationController.controller("conversationController", ["$scope",
                 uptoken: conversationServer._uploadToken,
                 domain: ImageDomain,
                 get_new_uptoken: false,
-                // unique_names: true,
+                unique_names: true,
                 filters: {
                     mime_types: [{ title: "Image files", extensions: "jpg,gif,png" }],
                     prevent_duplicates: false
@@ -13136,7 +13136,7 @@ conversationController.controller("conversationController", ["$scope",
                             return;
                         }
                         info = JSON.parse(info);
-                        RongIMLib.RongIMClient.getInstance().getFileUrl(RongIMLib.FileType.IMAGE, info.name, {
+                        RongIMLib.RongIMClient.getInstance().getFileUrl(RongIMLib.FileType.IMAGE, file.target_name, {
                             onSuccess: function (url) {
                                 WidgetModule.Helper.ImageHelper.getThumbnail(file.getNative(), 60000, function (obj, data) {
                                     var im = RongIMLib.ImageMessage.obtain(data, url.downloadUrl);
@@ -13953,11 +13953,11 @@ var widget = angular.module("RongWebIMWidget", ["RongWebIMWidget.conversationSer
 ]);
 widget.run(["$http", "WebIMWidget", "widgetConfig", "RongKefu", function ($http, WebIMWidget, widgetConfig, RongKefu) {
         var protocol = location.protocol === "https:" ? "https:" : "http:";
-        $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.2.2.min.js", function () {
-            $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.2.2.min.js", function () {
+        $script.get(protocol + "//cdn.ronghub.com/RongIMLib-2.2.1.min.js", function () {
+            $script.get(protocol + "//cdn.ronghub.com/RongEmoji-2.2.1.min.js", function () {
                 RongIMLib.RongIMEmoji && RongIMLib.RongIMEmoji.init();
             });
-            $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.2.2.min.js", function () {
+            $script.get(protocol + "//cdn.ronghub.com/RongIMVoice-2.2.1.min.js", function () {
                 RongIMLib.RongIMVoice && RongIMLib.RongIMVoice.init();
             });
             if (widgetConfig.config) {

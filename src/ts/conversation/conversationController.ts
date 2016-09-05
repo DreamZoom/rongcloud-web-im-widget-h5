@@ -569,7 +569,7 @@ conversationController.controller("conversationController", ["$scope",
                 uptoken: conversationServer._uploadToken,
                 domain: ImageDomain,
                 get_new_uptoken: false,
-                // unique_names: true,
+                unique_names: true,
                 filters: {
                     mime_types: [{ title: "Image files", extensions: "jpg,gif,png" }],
                     prevent_duplicates: false
@@ -591,7 +591,7 @@ conversationController.controller("conversationController", ["$scope",
                             return;
                         }
                         info = JSON.parse(info);
-                        RongIMLib.RongIMClient.getInstance().getFileUrl(RongIMLib.FileType.IMAGE, info.name, {
+                        RongIMLib.RongIMClient.getInstance().getFileUrl(RongIMLib.FileType.IMAGE, file.target_name, {
                             onSuccess: function(url) {
 
                                 WidgetModule.Helper.ImageHelper.getThumbnail(file.getNative(), 60000, function(obj: any, data: any) {
