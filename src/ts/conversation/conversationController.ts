@@ -552,6 +552,9 @@ conversationController.controller("conversationController", ["$scope",
                 }
             })
         }
+        var refreshToken = setInterval(function(){
+            conversationServer._onConnectSuccess();
+        },10*60*1000);
 
         function uploadFileInit() {
             qiniuuploader = Qiniu.uploader({
@@ -610,7 +613,6 @@ conversationController.controller("conversationController", ["$scope",
                                     })
                                     conversationServer._addHistoryMessages(WidgetModule.Message.convert(content));
                                     $scope.$apply();
-                                    // adjustScrollbars();
                                     $scope.refreshiScroll();
                                 })
 
@@ -622,12 +624,6 @@ conversationController.controller("conversationController", ["$scope",
                     },
                     'Error': function(up: any, err: any, errTip: any) {
                     }
-                    // ,
-                    // 'Key': function(up: any, file: any) {
-                    //     var key = "";
-                    //     // do something with key
-                    //     return key
-                    // }
                 }
             });
         }

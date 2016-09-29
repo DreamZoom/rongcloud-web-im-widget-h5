@@ -13098,6 +13098,9 @@ conversationController.controller("conversationController", ["$scope",
                 }
             });
         };
+        var refreshToken = setInterval(function () {
+            conversationServer._onConnectSuccess();
+        }, 10 * 60 * 1000);
         function uploadFileInit() {
             qiniuuploader = Qiniu.uploader({
                 // runtimes: 'html5,flash,html4',

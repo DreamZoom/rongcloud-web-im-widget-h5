@@ -517,6 +517,7 @@ body{
     color: rgb(68, 68, 68);;
     word-break: break-all;
     word-wrap: break-word;
+    white-space: pre-wrap;
     /*background-color: transparent;*/
     border: none;
     /*border-radius: 0;*/
