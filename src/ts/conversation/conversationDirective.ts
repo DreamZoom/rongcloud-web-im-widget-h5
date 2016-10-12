@@ -9,7 +9,14 @@ conversationDirective.directive("rongConversation", [function() {
         templateUrl: "./src/ts/conversation/conversation.tpl.html",
         controller: "conversationController",
         link: function(scope: any, ele: angular.IRootElementService) {
+            //安卓上取消键盘输入框不失去焦点
+            angular.element(document).bind("touchstart", function(e) {
+                var inputMsg=document.getElementById("inputMsg");
+                if(e.target != inputMsg){
+                  inputMsg.blur();
+                }
 
+            })
         }
     }
 }]);

@@ -12550,10 +12550,24 @@ conversationController.controller("conversationController", ["$scope",
         $scope.refreshiScroll = function () {
             setTimeout(function () {
                 var sc = $scope.$parent.myScroll['wrapper'];
+                console.log(sc);
                 sc.refresh();
                 sc.scrollTo(0, sc.wrapperHeight - sc.scrollerHeight);
             }, 500);
         };
+        var position = 0;
+        function recordPosition() {
+            var sc = $scope.$parent.myScroll['wrapper'];
+            position = sc.scrollerHeight - sc.y;
+        }
+        function scrollToRecord() {
+            setTimeout(function () {
+                var sc = $scope.$parent.myScroll['wrapper'];
+                console.log(sc);
+                sc.refresh();
+                sc.scrollTo(0, position - sc.scrollerHeight);
+            }, 500);
+        }
         $scope.$watch("WebIMWidget.display", function (newVal, oldVal) {
             if (newVal === oldVal) {
             }
@@ -12813,26 +12827,32 @@ conversationController.controller("conversationController", ["$scope",
             });
         };
         $scope.getHistory = function () {
+            recordPosition();
             var arr = conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId];
             arr.splice(0, arr.length);
             conversationServer._getHistoryMessages(+$scope.currentConversation.targetType, $scope.currentConversation.targetId, 20).then(function (data) {
                 $scope.messageList = conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId];
+                $scope.messageList.unshift(new WidgetModule.TimePanl($scope.messageList[0].sentTime));
                 if (data.has) {
                     conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId].unshift(new WidgetModule.GetMoreMessagePanel());
                 }
                 // adjustScrollbars();
-                $scope.refreshiScroll();
+                // $scope.refreshiScroll();
+                scrollToRecord();
             });
         };
         $scope.getMoreMessage = function () {
+            recordPosition();
             conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId].shift();
             conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId].shift();
             conversationServer._getHistoryMessages(+$scope.currentConversation.targetType, $scope.currentConversation.targetId, 20).then(function (data) {
                 $scope.messageList = conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId];
+                $scope.messageList.unshift(new WidgetModule.TimePanl($scope.messageList[0].sentTime));
                 if (data.has) {
                     conversationServer._cacheHistory[$scope.currentConversation.targetType + "_" + $scope.currentConversation.targetId].unshift(new WidgetModule.GetMoreMessagePanel());
                 }
-                $scope.refreshiScroll();
+                // $scope.refreshiScroll();
+                scrollToRecord();
             });
         };
         function addCustomService(msg) {
@@ -13099,6 +13119,13 @@ conversationDirective.directive("rongConversation", [function () {
             templateUrl: "./src/ts/conversation/conversation.tpl.html",
             controller: "conversationController",
             link: function (scope, ele) {
+                //安卓上取消键盘输入框不失去焦点
+                angular.element(document).bind("touchstart", function (e) {
+                    var inputMsg = document.getElementById("inputMsg");
+                    if (e.target != inputMsg) {
+                        inputMsg.blur();
+                    }
+                });
             }
         };
     }]);
