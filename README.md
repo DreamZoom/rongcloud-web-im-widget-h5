@@ -17,8 +17,6 @@ npm install -g typescript@1.6.0beta tsd grunt-cli
 
 ```
 npm install
-bower install
-tsd install
 ```
 
 ### 编译开发代码
@@ -31,12 +29,6 @@ grunt build
 
 ```
 grunt release
-```
-
-### 编译demo
-
-```
-grunt demo
 ```
 
 ### 启动demo服务
